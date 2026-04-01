@@ -117,27 +117,6 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
-      {/* Full Team */}
-      <RevealSection className="section-carbon section-padding">
-        <div className="container-full">
-          <div className="mb-16">
-            <p className="reveal text-label text-signal mb-4">Full Team</p>
-            <h2 className="reveal reveal-delay-1 text-section text-white">
-              30+ members
-            </h2>
-          </div>
-
-          <div className="reveal reveal-delay-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="p-4 border border-slate/20 hover:border-slate/50 transition-colors">
-                <p className="text-sm text-white font-medium mb-0.5">{member.name}</p>
-                <p className="text-xs text-steel">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
       {/* Advisors */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
