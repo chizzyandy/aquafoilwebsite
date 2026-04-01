@@ -195,7 +195,7 @@ export default function BuildPage() {
             <div className="md:col-span-7">
               <div className="reveal reveal-delay-2 space-y-6">
                 <p className="text-base text-steel leading-relaxed">
-                  Our design process integrates computational fluid dynamics (CFD), finite element analysis (FEA), and material lifecycle assessment at every stage. OpenFOAM provides our hydrodynamic simulation backbone. Structural models are validated before any material is committed.
+                  Our design process integrates computational fluid dynamics (CFD), finite element analysis (FEA), and material lifecycle assessment at every stage. OpenFOAM provides our hydrodynamic simulation backbone. Ansys is used for structural analysis. Everything is planned and tested before implementation.
                 </p>
                 <p className="text-base text-steel/80 leading-relaxed">
                   Material decisions are not decorative — each candidate undergoes mechanical testing, lifecycle assessment, and performance benchmarking against conventional alternatives. The trade-off data is public. The reasoning is documented.
@@ -206,7 +206,7 @@ export default function BuildPage() {
 
           {/* Tool badges */}
           <div className="reveal reveal-delay-3 mt-16 flex flex-wrap gap-3">
-            {['OpenFOAM', 'SolidWorks', 'ANSYS', 'MATLAB', 'Python', 'Bio-Epoxy Systems', 'Natural Fibre Composites'].map((tool) => (
+            {['OpenFOAM', 'SolidWorks', 'ANSYS', 'Python', 'Bio-Epoxy Systems', 'Natural Fibre Composites'].map((tool) => (
               <span key={tool} className="font-mono text-xs text-steel px-4 py-2 border border-slate/30">
                 {tool}
               </span>
