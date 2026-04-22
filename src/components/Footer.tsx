@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="section-dark border-t border-slate/30">
-      <div className="container-full py-16 md:py-24">
+      <div className="container-full pt-24 pb-16 md:pt-32 md:pb-24">
         {/* Top Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
           {/* Brand */}
@@ -89,7 +89,8 @@ export default function Footer() {
         <div className="border-t border-slate/30 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex items-center gap-4">
             <p className="text-xs text-mid">
-              &copy; {new Date().getFullYear()} aQuaFoil — Queen&apos;s University
+              &copy; {new Date().getFullYear()}
+              aQuaFoil — Queen&apos;s University
             </p>
           </div>
           <div className="flex items-center gap-2">

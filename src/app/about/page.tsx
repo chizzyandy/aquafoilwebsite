@@ -15,7 +15,7 @@ export default function AboutPage() {
             Built to prove something
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            aQuaFoil is not a boat-building club. It is a platform for proving what the next generation of sustainable high-performance engineering can look like.
+            aQuaFoil is an opportunity for students to gain real world engineering experience while competing on a global stage.
           </p>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function AboutPage() {
                   To build a competition-grade foiling Moth at Queen&apos;s University — demonstrating that sustainable engineering and elite performance are not competing values, but a single design challenge pursued with honesty and precision.
                 </p>
                 <p className="text-base text-steel/80 leading-relaxed">
-                  The conventional wisdom in high-performance design is that sustainability and performance sit in tension. You sacrifice one for the other. aQuaFoil was founded to challenge that assumption — with data, with carbon fibre, and with a foiling Moth on the start line.
+                  The conventional wisdom in high-performance design is that sustainability and performance sit in tension. You sacrifice one for the other. aQuaFoil was founded to challenge that assumption.
                 </p>
               </div>
             </div>
@@ -73,9 +73,8 @@ export default function AboutPage() {
       <RevealSection className="section-light section-padding">
         <div className="container-full">
           <div className="text-center mb-16">
-            <p className="reveal text-label text-signal-deep mb-4">Engineering Disciplines</p>
             <h2 className="reveal reveal-delay-1 text-section text-void">
-              Six disciplines. One vessel.
+              Five Subteams. One Boat.
             </h2>
           </div>
 
@@ -97,7 +96,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <p className="reveal text-label text-signal mb-4">Leadership</p>
             <h2 className="reveal reveal-delay-1 text-section text-white">
-              Team leads
+              Sub-Team Directors
             </h2>
           </div>
 
@@ -147,11 +146,10 @@ export default function AboutPage() {
             Want to be part of the build?
           </h2>
           <p className="reveal reveal-delay-1 text-steel mb-8 max-w-lg mx-auto">
-            We are actively recruiting engineers across all disciplines for the 2025–2026 design and fabrication phases.
+            We are actively recruiting engineers across all disciplines for the 2026–2027 design and fabrication phases.
           </p>
           <div className="reveal reveal-delay-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/join" className="btn-primary">Apply to join</Link>
-            <Link href="/partners" className="btn-secondary">Explore partnership</Link>
           </div>
         </div>
       </RevealSection>

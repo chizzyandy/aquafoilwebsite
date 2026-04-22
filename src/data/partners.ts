@@ -8,14 +8,10 @@ export interface Partner {
 
 export const partners: Partner[] = [
   {
-    name: "Queen's University",
+    name: "Smith Engineering at Queen's University",
     tier: "founding",
-    description: "Institutional home and academic partner.",
-  },
-  {
-    name: "Smith School of Engineering",
-    tier: "founding",
-    description: "Faculty support, facilities, and academic oversight.",
+    description: "Institutional home and faculty support. ",
+    logo: "/images/partners/smith-logo.svg",
   },
   // Add partners here as they are confirmed
   // {

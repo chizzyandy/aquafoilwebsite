@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
 import { partners, partnershipValues } from '@/data/partners';
@@ -52,14 +53,10 @@ export default function PartnersPage() {
       {/* Project Stats */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
-          <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 py-12 border-t border-b border-slate/30">
-            <StatCounter value={30} suffix="+" label="Team Members" />
-            <StatCounter value={6} label="Engineering Disciplines" />
-            <StatCounter value={3} label="Faculty Advisors" />
-            <div className="text-center">
-              <div className="text-data text-4xl md:text-5xl text-white mb-2">2027</div>
-              <p className="text-label text-steel">Competition Year</p>
-            </div>
+          <div className="reveal grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 py-12 border-t border-b border-slate/30">
+            <StatCounter value={20} suffix="+" label="Team Members" />
+            <StatCounter value={5} label="Sub-Teams" />
+            <StatCounter value={2} label="Industry Advisors" />
           </div>
         </div>
       </RevealSection>
@@ -113,18 +110,24 @@ export default function PartnersPage() {
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
           <div className="text-center mb-16">
-            <p className="reveal text-label text-signal mb-4">Current Partners</p>
-            <h2 className="reveal reveal-delay-1 text-section text-white">
-              Institutional support
-            </h2>
+            <p className="reveal text-label text-signal mb-16">Current Partners</p>
           </div>
 
           <div className="reveal reveal-delay-2 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {partners.map((partner) => (
               <div key={partner.name} className="card-dark p-8 text-center">
-                {/* Logo placeholder */}
-                <div className="w-full h-16 flex items-center justify-center mb-4">
-                  <span className="font-display text-lg font-medium text-white">{partner.name}</span>
+                <div className="w-full h-24 md:h-28 flex items-center justify-center mb-4">
+                  {partner.logo ? (
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={320}
+                      height={112}
+                      className="h-24 md:h-28 w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="font-display text-lg font-medium text-white">{partner.name}</span>
+                  )}
                 </div>
                 {partner.description && (
                   <p className="text-xs text-steel">{partner.description}</p>

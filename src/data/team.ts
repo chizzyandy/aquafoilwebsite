@@ -14,12 +14,11 @@ export interface Advisor {
 }
 
 export const teamLeads: TeamMember[] = [
-  { name: "Andrew Chisholm", role: "Project Lead", discipline: "Mechanical Engineering" },
-  { name: "Team Lead 2", role: "Chief Engineer", discipline: "Mechanical Engineering" },
-  { name: "Team Lead 3", role: "Design Lead", discipline: "Engineering Physics" },
-  { name: "Team Lead 4", role: "Materials Lead", discipline: "Materials Engineering" },
-  { name: "Team Lead 5", role: "Structures Lead", discipline: "Civil Engineering" },
-  { name: "Team Lead 6", role: "Hydrodynamics Lead", discipline: "Mechanical Engineering" },
+  { name: "Andrew Chisholm", role: "Co-Founder", discipline: "Mechanical Engineering" },
+  { name: "Thomas Hung", role: "Co-Founder", discipline: "Engineering Physics" },
+  { name: "Aidan Woods", role: "CFD Director", discipline: "Engineering Physics" },
+  { name: "Joel Voyer", role: "Mechanical Director", discipline: "Engineering Physics" },
+  { name: "Team Lead 5", role: "Business Director", discipline: "Comerce" },
 ];
 
 export const teamMembers: TeamMember[] = [
@@ -33,20 +32,6 @@ export const teamMembers: TeamMember[] = [
   { name: "Member 8", role: "Hull Design", discipline: "Engineering Physics" },
   { name: "Member 9", role: "Manufacturing", discipline: "Mechanical Engineering" },
   { name: "Member 10", role: "Data Systems", discipline: "Computer Engineering" },
-  { name: "Member 11", role: "Surface Finishing", discipline: "Materials Engineering" },
-  { name: "Member 12", role: "Testing", discipline: "Mechanical Engineering" },
-  { name: "Member 13", role: "CAD/CAM", discipline: "Mechanical Engineering" },
-  { name: "Member 14", role: "Rigging", discipline: "Mechanical Engineering" },
-  { name: "Member 15", role: "Outreach", discipline: "Engineering & Management" },
-  { name: "Member 16", role: "Documentation", discipline: "Engineering & Management" },
-  { name: "Member 17", role: "Composites", discipline: "Materials Engineering" },
-  { name: "Member 18", role: "Analysis", discipline: "Engineering Physics" },
-  { name: "Member 19", role: "Fabrication", discipline: "Mechanical Engineering" },
-  { name: "Member 20", role: "Design", discipline: "Mechanical Engineering" },
-  { name: "Member 21", role: "Testing", discipline: "Civil Engineering" },
-  { name: "Member 22", role: "Materials", discipline: "Materials Engineering" },
-  { name: "Member 23", role: "CAD", discipline: "Mechanical Engineering" },
-  { name: "Member 24", role: "Analysis", discipline: "Engineering Physics" },
 ];
 
 export const advisors: Advisor[] = [
@@ -56,10 +41,9 @@ export const advisors: Advisor[] = [
 ];
 
 export const disciplines = [
-  { name: "Structures & Composites", count: 8 },
-  { name: "Hydrodynamics & CFD", count: 5 },
-  { name: "Hull & Foil Design", count: 6 },
-  { name: "Materials Science", count: 5 },
-  { name: "Systems & Integration", count: 3 },
-  { name: "Manufacturing & Fabrication", count: 3 },
+  { name: "CFD & Hydrodynamics", count: 4 },
+  { name: "Mechanical Integration", count: 5 },
+  { name: "Business & Sponsorship", count: 3 },
+  { name: "Structural Analysis", count: 2 },
+  { name: "Manufacturing & Fabrication", count: 5 },
 ];

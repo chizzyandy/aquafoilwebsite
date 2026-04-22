@@ -93,18 +93,17 @@ export default function JoinPage() {
           <div className="mb-12">
             <p className="reveal text-label text-signal mb-4">Open Positions</p>
             <h2 className="reveal reveal-delay-1 text-subsection text-white">
-              We are recruiting across all disciplines
+              We are recruiting across all Sub-Teams
             </h2>
           </div>
 
           <div className="reveal reveal-delay-2 space-y-4">
             {[
-              { role: 'Composites & Fabrication', dept: 'Structures', desc: 'Composite layup, tooling design, and manufacturing process development.' },
-              { role: 'CFD & Hydrodynamics', dept: 'Hydrodynamics', desc: 'OpenFOAM simulations. Foil and hull hydrodynamic analysis.' },
+              { role: 'Composites & Fabrication', dept: 'Manufacturing', desc: 'Composite layup, tooling design, and manufacturing process development.' },
+              { role: 'CFD & Hydrodynamics', dept: 'CFD', desc: 'OpenFOAM simulations. Foil and hull hydrodynamic analysis.' },
               { role: 'Structural Analysis', dept: 'Structures', desc: 'FEA modeling, load case analysis, structural optimization.' },
-              { role: 'Materials Testing', dept: 'Materials', desc: 'Mechanical testing, material characterization, lifecycle assessment.' },
-              { role: 'CAD & Design', dept: 'Design', desc: 'SolidWorks and parametric modeling. Component and assembly design.' },
-              { role: 'Systems Integration', dept: 'Systems', desc: 'Control systems, rigging, and subsystem integration.' },
+              { role: 'CAD & Design', dept: 'Mechanical', desc: 'SolidWorks and parametric modeling. Component and assembly design.' },
+              { role: 'Buisness & Sponsorship', dept: 'Business', desc: 'Sponsorship management, marketing, and communications.' },
             ].map((position) => (
               <div key={position.role} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-4 border-b border-slate/20">
                 <div className="md:w-1/3">
@@ -140,7 +139,7 @@ export default function JoinPage() {
               <div className="reveal text-center py-16">
                 <div className="w-12 h-12 bg-signal/10 flex items-center justify-center mx-auto mb-6">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 13l4 4L19 7" stroke="#00BFB3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M5 13l4 4L19 7" stroke="#00BFB3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <h3 className="font-display text-2xl font-medium text-void mb-3">Application received</h3>

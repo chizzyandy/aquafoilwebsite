@@ -234,13 +234,13 @@ body {
 .container-editorial {
   max-width: var(--max-editorial);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 40px);
+  padding-inline: clamp(20px, 4vw, 40px);
 }
 
 .container-full {
   max-width: var(--max-full);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 40px);
+  padding-inline: clamp(20px, 4vw, 40px);
 }
 
 /* ─── NAV ─── */
