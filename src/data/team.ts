@@ -16,9 +16,9 @@ export interface Advisor {
 export const teamLeads: TeamMember[] = [
   { name: "Andrew Chisholm", role: "Co-Founder", discipline: "Mechanical Engineering" },
   { name: "Thomas Hung", role: "Co-Founder", discipline: "Engineering Physics" },
-  { name: "Aidan Woods", role: "CFD Director", discipline: "Engineering Physics" },
-  { name: "Joel Voyer", role: "Mechanical Director", discipline: "Engineering Physics" },
-  { name: "Team Lead 5", role: "Business Director", discipline: "Comerce" },
+  { name: "Aidan Woods", role: "CFD Lead", discipline: "Engineering Physics" },
+  { name: "Joel Voyer", role: "Mechanical Lead", discipline: "Engineering Physics" },
+  { name: "Team Lead 5", role: "Business Lead", discipline: "Comerce" },
 ];
 
 export const teamMembers: TeamMember[] = [

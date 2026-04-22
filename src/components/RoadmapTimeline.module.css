@@ -18,7 +18,8 @@
   bottom: 0;
   left: 20px;
   width: 1px;
-  background: #2C3140; /* --slate */
+  background: #2C3140;
+  /* --slate */
   overflow: hidden;
 }
 
@@ -36,15 +37,19 @@
 .node {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  min-height: 100px;
-  padding-bottom: 40px;
+  align-items: center;
+  padding-bottom: 12px;
   /* scroll reveal */
   opacity: 0;
   transform: translateY(24px);
   transition:
     opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* every node after the first overlaps the one above by 20px */
+.node+.node {
+  margin-top: -40px;
 }
 
 .nodeVisible {
@@ -56,8 +61,9 @@
 .dotWrap {
   position: absolute;
   left: 20px;
-  top: 4px;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* center on card midpoint */
   z-index: 2;
   display: flex;
   align-items: center;
@@ -103,19 +109,33 @@
 }
 
 @keyframes pulse {
-  0%   { transform: scale(0.8); opacity: 0.6; }
-  70%  { transform: scale(1.6); opacity: 0; }
-  100% { transform: scale(1.6); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
 /* ─── CARD ─── */
 .card {
   background: #1A1B1F;
   border: 1px solid #2C3140;
-  padding: 20px 24px;
+  padding: 10px 14px;
   margin-left: 48px;
   width: calc(100% - 48px);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  /* lift card above previous node's card */
+  position: relative;
+  z-index: 1;
 }
 
 .cardActive {
@@ -152,9 +172,20 @@
   padding: 3px 8px;
 }
 
-.badgeCompleted { background: rgba(0,191,179,0.12); color: #00BFB3; }
-.badgeActive    { background: rgba(0,191,179,0.20); color: #00BFB3; }
-.badgeUpcoming  { background: rgba(44,49,64,0.6);   color: #6B7280; }
+.badgeCompleted {
+  background: rgba(0, 191, 179, 0.12);
+  color: #00BFB3;
+}
+
+.badgeActive {
+  background: rgba(0, 191, 179, 0.20);
+  color: #00BFB3;
+}
+
+.badgeUpcoming {
+  background: rgba(44, 49, 64, 0.6);
+  color: #6B7280;
+}
 
 /* ─── TITLE / PERIOD / SUMMARY ─── */
 .title {
@@ -167,7 +198,9 @@
   margin-bottom: 4px;
 }
 
-.titleUpcoming { color: #8A9BAE; }
+.titleUpcoming {
+  color: #8A9BAE;
+}
 
 .period {
   font-family: 'Space Mono', monospace;
@@ -201,14 +234,18 @@
   transition: opacity 0.2s ease;
 }
 
-.expandBtn:hover { opacity: 0.75; }
+.expandBtn:hover {
+  opacity: 0.75;
+}
 
 .chevron {
   color: #00BFB3;
   transition: transform 0.3s ease;
 }
 
-.chevronOpen { transform: rotate(180deg); }
+.chevronOpen {
+  transform: rotate(180deg);
+}
 
 /* ─── DETAIL PANEL ─── */
 .detail {
@@ -282,11 +319,16 @@
   }
 
   /* left → card on left side */
-  .nodeLeft { justify-content: flex-start; }
+  .nodeLeft {
+    justify-content: flex-start;
+  }
+
   .nodeLeft .dotWrap {
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
+
   .nodeLeft .card {
     margin-left: 0;
     margin-right: calc(50% + 36px);
@@ -294,11 +336,16 @@
   }
 
   /* right → card on right side */
-  .nodeRight { justify-content: flex-end; }
+  .nodeRight {
+    justify-content: flex-end;
+  }
+
   .nodeRight .dotWrap {
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
+
   .nodeRight .card {
     margin-left: calc(50% + 36px);
     margin-right: 0;

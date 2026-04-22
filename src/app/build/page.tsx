@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
-import { timelinePhases } from '@/data/timeline';
+import RoadmapTimeline from '@/components/RoadmapTimeline';
 
 export default function BuildPage() {
   return (
@@ -123,62 +123,15 @@ export default function BuildPage() {
 
       {/* Full Timeline */}
       <RevealSection className="section-carbon section-padding">
-        <div className="container-full">
-          <div className="mb-16">
+        <div className="container-editorial">
+          <div className="text-center mb-16">
             <p className="reveal text-label text-signal mb-4">Project Timeline</p>
             <h2 className="reveal reveal-delay-1 text-section text-white">
               Full roadmap
             </h2>
           </div>
 
-          <div className="space-y-0">
-            {timelinePhases.map((phase, idx) => (
-              <div
-                key={phase.id}
-                className={`reveal reveal-delay-${Math.min(idx + 1, 6)} grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-10 ${
-                  idx < timelinePhases.length - 1 ? 'border-b border-slate/20' : ''
-                }`}
-              >
-                {/* Phase Label */}
-                <div className="md:col-span-3">
-                  <span className="text-label text-signal">{phase.phase}</span>
-                  <h3 className="font-display text-2xl font-medium text-white mt-2">{phase.title}</h3>
-                  <p className="font-mono text-xs text-mid mt-2">{phase.period}</p>
-                  <span className={`inline-block mt-3 text-[10px] font-mono uppercase tracking-wider px-2 py-1 ${
-                    phase.status === 'completed'
-                      ? 'bg-signal/10 text-signal'
-                      : phase.status === 'active'
-                      ? 'bg-signal/20 text-signal'
-                      : 'bg-slate/30 text-mid'
-                  }`}>
-                    {phase.status}
-                  </span>
-                </div>
-
-                {/* Description */}
-                <div className="md:col-span-5">
-                  <p className="text-base text-steel leading-relaxed">
-                    {phase.description}
-                  </p>
-                </div>
-
-                {/* Milestones */}
-                <div className="md:col-span-4">
-                  <p className="text-label text-steel mb-3">Key Milestones</p>
-                  <ul className="space-y-2">
-                    {phase.milestones.map((milestone) => (
-                      <li key={milestone} className="flex items-start gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${
-                          phase.status === 'completed' ? 'bg-signal' : 'bg-slate'
-                        }`} />
-                        <span className="text-sm text-steel/80">{milestone}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+          <RoadmapTimeline />
         </div>
       </RevealSection>
 
