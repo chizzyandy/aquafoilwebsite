@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
-import { timelinePhases } from '@/data/timeline';
+import RoadmapTimeline from '@/components/RoadmapTimeline';
 import { updates } from '@/data/updates';
 import { categoryLabels } from '@/data/updates';
 import { disciplines } from '@/data/team';
@@ -211,7 +211,8 @@ export default function Home() {
           06 — TIMELINE
       ═══════════════════════════════════════════ */}
       <RevealSection className="section-carbon section-padding">
-        <div className="container-full">
+        <div className="container-editorial">
+          {/* Section header */}
           <div className="text-center mb-16">
             <p className="reveal text-label text-signal mb-4">05 — The roadmap</p>
             <h2 className="reveal reveal-delay-1 text-section text-white">
@@ -219,47 +220,8 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Timeline */}
-          <div className="reveal reveal-delay-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {timelinePhases.map((phase) => (
-              <div
-                key={phase.id}
-                className={`card-dark p-8 relative overflow-hidden ${phase.status === 'active' ? 'border-signal/50' : ''
-                  }`}
-              >
-                {phase.status === 'active' && (
-                  <div className="absolute top-0 left-0 right-0 h-px bg-signal" />
-                )}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-label text-signal">{phase.phase}</span>
-                  <span className={`text-[10px] font-mono uppercase tracking-wider px-2 py-1 ${phase.status === 'completed'
-                    ? 'bg-signal/10 text-signal'
-                    : phase.status === 'active'
-                      ? 'bg-signal/20 text-signal'
-                      : 'bg-slate/30 text-mid'
-                    }`}>
-                    {phase.status}
-                  </span>
-                </div>
-                <h3 className="font-display text-xl font-medium text-white mb-2">
-                  {phase.title}
-                </h3>
-                <p className="font-mono text-xs text-mid mb-4">{phase.period}</p>
-                <p className="text-sm text-steel/80 leading-relaxed">
-                  {phase.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="reveal mt-12 text-center">
-            <Link href="/build" className="inline-flex items-center gap-2 text-sm text-steel hover:text-signal transition-colors">
-              Full project timeline
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </div>
+          {/* Vertical timeline */}
+          <RoadmapTimeline />
         </div>
       </RevealSection>
 

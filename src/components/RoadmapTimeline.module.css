@@ -1,0 +1,307 @@
+/* ─── WRAPPER ─── */
+.section {
+  position: relative;
+}
+
+/* ─── TRACK ─── */
+.track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
+
+/* ─── RAIL ─── */
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 1px;
+  background: #2C3140; /* --slate */
+  overflow: hidden;
+}
+
+.railFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, #00BFB3, #007A75);
+  transition: height 0.15s ease-out;
+  border-radius: 1px;
+}
+
+/* ─── NODE ─── */
+.node {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 100px;
+  padding-bottom: 40px;
+  /* scroll reveal */
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nodeVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── DOT ─── */
+.dotWrap {
+  position: absolute;
+  left: 20px;
+  top: 4px;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dotCompleted {
+  background: #00BFB3;
+  border: 2px solid #00BFB3;
+  color: #0C0D10;
+}
+
+.dotActive {
+  background: #1A1B1F;
+  border: 2px solid #00BFB3;
+  box-shadow: 0 0 0 4px rgba(0, 191, 179, 0.15);
+}
+
+.dotUpcoming {
+  background: #1A1B1F;
+  border: 2px solid #2C3140;
+}
+
+/* pulsing ring */
+.dotPulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid #00BFB3;
+  animation: pulse 2s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(0.8); opacity: 0.6; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ─── CARD ─── */
+.card {
+  background: #1A1B1F;
+  border: 1px solid #2C3140;
+  padding: 20px 24px;
+  margin-left: 48px;
+  width: calc(100% - 48px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cardActive {
+  border-color: rgba(0, 191, 179, 0.4);
+  box-shadow: 0 0 24px rgba(0, 191, 179, 0.06);
+}
+
+.cardUpcoming {
+  opacity: 0.7;
+}
+
+/* ─── CARD HEADER ─── */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.phaseLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00BFB3;
+}
+
+/* ─── BADGE ─── */
+.badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+
+.badgeCompleted { background: rgba(0,191,179,0.12); color: #00BFB3; }
+.badgeActive    { background: rgba(0,191,179,0.20); color: #00BFB3; }
+.badgeUpcoming  { background: rgba(44,49,64,0.6);   color: #6B7280; }
+
+/* ─── TITLE / PERIOD / SUMMARY ─── */
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.titleUpcoming { color: #8A9BAE; }
+
+.period {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #6B7280;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.summary {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #8A9BAE;
+  margin-bottom: 10px;
+}
+
+/* ─── EXPAND BUTTON ─── */
+.expandBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #00BFB3;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.expandBtn:hover { opacity: 0.75; }
+
+.chevron {
+  color: #00BFB3;
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen { transform: rotate(180deg); }
+
+/* ─── DETAIL PANEL ─── */
+.detail {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease,
+    margin-top 0.3s ease;
+}
+
+.detailOpen {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.detailBody {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8A9BAE;
+  margin-bottom: 10px;
+  border-top: 1px solid #2C3140;
+  padding-top: 12px;
+}
+
+.milestones {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.milestones li {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #6B7280;
+  padding-left: 14px;
+  position: relative;
+}
+
+.milestones li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #00BFB3;
+  opacity: 0.5;
+}
+
+/* ─── CTA ─── */
+.cta {
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ─── DESKTOP: alternating ─── */
+@media (min-width: 768px) {
+  .rail {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nodeLeft,
+  .nodeRight {
+    width: 100%;
+  }
+
+  /* left → card on left side */
+  .nodeLeft { justify-content: flex-start; }
+  .nodeLeft .dotWrap {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nodeLeft .card {
+    margin-left: 0;
+    margin-right: calc(50% + 36px);
+    width: calc(50% - 36px);
+  }
+
+  /* right → card on right side */
+  .nodeRight { justify-content: flex-end; }
+  .nodeRight .dotWrap {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nodeRight .card {
+    margin-left: calc(50% + 36px);
+    margin-right: 0;
+    width: calc(50% - 36px);
+  }
+}

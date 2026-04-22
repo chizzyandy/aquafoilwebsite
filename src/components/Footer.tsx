@@ -94,7 +94,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-mid">Smith School of Engineering</span>
+            <span className="text-xs text-mid">Smith Engineering</span>
             <span className="text-slate">·</span>
             <span className="text-xs text-mid">Kingston, Ontario</span>
           </div>

@@ -49,19 +49,24 @@ export default function AboutPage() {
       {/* Affiliation */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
-          <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="card-dark p-8">
               <p className="text-label text-signal mb-4">Institution</p>
+              <img
+                src="/images/partners/queens-logo.png"
+                alt="Queen's University"
+                className="w-128 h-64 object-contain mb-6"
+              />
               <h3 className="font-display text-xl font-medium text-white mb-2">Queen&apos;s University</h3>
-              <p className="text-sm text-steel">Kingston, Ontario. One of Canada&apos;s leading research-intensive universities.</p>
-            </div>
-            <div className="card-dark p-8">
-              <p className="text-label text-signal mb-4">Faculty</p>
-              <h3 className="font-display text-xl font-medium text-white mb-2">Smith School of Engineering</h3>
-              <p className="text-sm text-steel">Faculty support, facilities, and academic oversight for the programme.</p>
+              <p className="text-sm text-steel">Kingston, Ontario. A university located on the traditional territory of the Haudenosaunee and Anishinaabek.</p>
             </div>
             <div className="card-dark p-8">
               <p className="text-label text-signal mb-4">Competition</p>
+              <img
+                src="/images/competition/sumoth-logo.svg"
+                alt="SuMoth Challenge"
+                className="w-128 h-64 object-contain mb-6"
+              />
               <h3 className="font-display text-xl font-medium text-white mb-2">SuMoth Challenge 2027</h3>
               <p className="text-sm text-steel">The premier sustainable foiling Moth competition. Our design target and proving ground.</p>
             </div>
