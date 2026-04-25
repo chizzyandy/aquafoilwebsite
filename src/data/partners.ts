@@ -10,6 +10,7 @@ export const partners: Partner[] = [
   {
     name: "Smith Engineering at Queen's University",
     tier: "founding",
+    url: "https://smithengineering.queensu.ca/index.html",
     description: "Institutional home and faculty support. ",
     logo: "/images/partners/smith-logo.svg",
   },
