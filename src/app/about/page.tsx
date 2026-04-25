@@ -12,7 +12,7 @@ export default function AboutPage() {
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">About</p>
           <h1 className="text-hero text-white max-w-3xl">
-            Built to prove something
+            Built to learn
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
             aQuaFoil is an opportunity for students to gain real world engineering experience while competing on a global stage.
@@ -34,11 +34,11 @@ export default function AboutPage() {
             </div>
             <div className="md:col-span-7">
               <div className="reveal reveal-delay-1">
-                <p className="text-lg text-steel leading-relaxed mb-6">
-                  To build a competition-grade foiling Moth at Queen&apos;s University — demonstrating that sustainable engineering and elite performance are not competing values, but a single design challenge pursued with honesty and precision.
+                <p className="text-xl text-steel leading-relaxed mb-6">
+                  Our goal is to design and build a competition-grade foiling Moth at Queen&apos;s University.
                 </p>
-                <p className="text-base text-steel/80 leading-relaxed">
-                  The conventional wisdom in high-performance design is that sustainability and performance sit in tension. You sacrifice one for the other. aQuaFoil was founded to challenge that assumption.
+                <p className="text-lg text-steel/80 leading-relaxed">
+                  We are learning to push the boundaries of foiling through design and experimentation.
                 </p>
               </div>
             </div>

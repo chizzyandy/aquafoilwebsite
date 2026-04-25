@@ -33,10 +33,10 @@ export default function JoinPage() {
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">Join the Team</p>
           <h1 className="text-hero text-white max-w-3xl">
-            Build something that matters
+            Build something that will improve your skills
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            Not homework. Not simulation. Real fabrication, real materials, real racing conditions. The kind of work that builds a portfolio.
+            Take everything you learn in class and apply it to a real-world project.
           </p>
         </div>
       </section>
@@ -47,35 +47,31 @@ export default function JoinPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
             <div className="md:col-span-5">
               <p className="reveal text-label text-signal mb-4">Why Join</p>
-              <h2 className="reveal reveal-delay-1 text-section text-white">
-                Real engineering. Real stakes.
-              </h2>
+              <h3 className="reveal reveal-delay-1 text-section text-white">
+                Hands on Engineering Challenge
+              </h3>
             </div>
             <div className="md:col-span-7">
               <p className="reveal reveal-delay-2 text-lg text-steel leading-relaxed">
-                aQuaFoil operates like a professional engineering team. Queen&apos;s faculty, real deliverables, real accountability. The engineering decisions here have genuine environmental stakes — that changes how the work feels.
+                aQuaFoil operates like a high preformace design team. Real deliverables, real accountability, while keeping the work fun.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Hands-On Fabrication',
-                desc: 'Composite layup, tooling, CNC machining. Work with materials and processes that most students only read about.',
+                title: 'Fabrication',
+                desc: 'Composite layup, tooling, CNC machining. Work with materials and processes that you won\'t always get to use in class.',
               },
               {
-                title: 'Computational Engineering',
-                desc: 'CFD, FEA, material simulation. OpenFOAM, ANSYS, SolidWorks, MATLAB. Build real analysis skills on real problems.',
+                title: 'Computational Analysis',
+                desc: 'CFD, FEA, material simulation. Using software like OpenFOAM, ANSYS, SolidWorks, Python. Build analysis skills using a real problems.',
               },
               {
-                title: 'Portfolio That Speaks',
+                title: 'Build a Brand That Speaks',
                 desc: 'Documented projects, tested components, a brand that looks serious. Work that demonstrates professional-grade competence.',
-              },
-              {
-                title: 'Multidisciplinary Team',
-                desc: 'Work across structures, hydrodynamics, materials, fabrication, and systems. The best engineering is multidisciplinary.',
-              },
+              }
             ].map((benefit, i) => (
               <div key={benefit.title} className={`reveal reveal-delay-${i + 1} card-dark p-8`}>
                 <div className="signal-line mb-6" />
@@ -131,7 +127,7 @@ export default function JoinPage() {
                 Express your interest
               </h2>
               <p className="reveal reveal-delay-2 text-base text-void/60 mt-4">
-                All Queen&apos;s Engineering students are eligible. Tell us about your skills, your experience, and what you want to build.
+                All Queen&apos;s students are eligible. Tell us about your skills, your experience, and what you want to contribute.
               </p>
             </div>
 
