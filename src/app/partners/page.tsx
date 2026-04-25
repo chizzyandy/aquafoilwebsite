@@ -118,13 +118,13 @@ export default function PartnersPage() {
               <div key={partner.name} className="card-dark p-8 text-center">
                 <div className="w-full h-24 md:h-28 flex items-center justify-center mb-4">
                   {partner.logo ? (
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      width={320}
-                      height={112}
-                      className="h-24 md:h-28 w-auto object-contain"
-                    />
+                    <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        className="w-320 h-112 object-contain"
+                      />
+                    </a>
                   ) : (
                     <span className="font-display text-lg font-medium text-white">{partner.name}</span>
                   )}
