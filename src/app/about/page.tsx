@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
+import SectionDivider from '@/components/SectionDivider';
 import { teamLeads, teamMembers, advisors, disciplines } from '@/data/team';
 
 export default function AboutPage() {
@@ -21,7 +22,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <RevealSection className="section-carbon section-padding">
+      <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5">
@@ -46,8 +47,10 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
+
       {/* Affiliation */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="card-dark p-8">
@@ -78,6 +81,8 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* Disciplines */}
       <RevealSection className="section-light section-padding">
         <div className="container-full">
@@ -98,6 +103,8 @@ export default function AboutPage() {
           </div>
         </div>
       </RevealSection>
+
+      <SectionDivider topTheme="light" bottomTheme="void" flip />
 
       {/* Team Leads */}
       <RevealSection className="section-dark section-padding">
@@ -125,8 +132,10 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
+
       {/* Advisors */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="mb-16">
             <p className="reveal text-label text-signal mb-4">Advisors</p>
@@ -148,13 +157,15 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* CTA */}
-      <RevealSection className="section-carbon section-padding">
+      <RevealSection className="section-light section-padding">
         <div className="container-editorial text-center">
-          <h2 className="reveal text-subsection text-white mb-6">
+          <h2 className="reveal text-subsection text-void mb-6">
             Want to be part of the build?
           </h2>
-          <p className="reveal reveal-delay-1 text-steel mb-8 max-w-lg mx-auto">
+          <p className="reveal reveal-delay-1 text-void/70 mb-8 max-w-lg mx-auto">
             We are actively recruiting engineers across all disciplines for the 2026–2027 design and fabrication phases.
           </p>
           <div className="reveal reveal-delay-2 flex flex-col sm:flex-row items-center justify-center gap-4">

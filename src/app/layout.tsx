@@ -35,6 +35,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
+        {/* Global noise grain overlay */}
+        <div className="noise-overlay" aria-hidden="true">
+          <svg>
+            <filter id="noiseFilter">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.65"
+                numOctaves="3"
+                stitchTiles="stitch"
+              />
+            </filter>
+          </svg>
+        </div>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

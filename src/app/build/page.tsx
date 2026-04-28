@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import RoadmapTimeline from '@/components/RoadmapTimeline';
+import SectionDivider from '@/components/SectionDivider';
 
 export default function BuildPage() {
   return (
@@ -21,26 +22,26 @@ export default function BuildPage() {
       </section>
 
       {/* The Vessel */}
-      <RevealSection className="section-light section-padding">
+      <RevealSection className="section-carbon section-padding">
         <div className="container-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
-              <p className="reveal text-label text-signal-deep mb-4">The Vessel</p>
-              <h2 className="reveal reveal-delay-1 text-section text-void mb-8">
+              <p className="reveal text-label text-signal mb-4">The Vessel</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white mb-8">
                 A foiling Moth
               </h2>
               <div className="reveal reveal-delay-2 space-y-6">
-                <p className="text-base text-void/80 leading-relaxed">
+                <p className="text-base text-steel leading-relaxed">
                   The International Moth is a single-handed sailing dinghy that flies above the water on hydrofoils. At full flight, only the foils and rudder touch the water — the hull is airborne.
                 </p>
-                <p className="text-base text-void/80 leading-relaxed">
+                <p className="text-base text-steel leading-relaxed">
                   The SuMoth Challenge adds a critical constraint: every material decision, structural choice, and fabrication method must meet measurable sustainability standards. That constraint does not reduce the engineering — it amplifies it.
                 </p>
               </div>
 
               {/* Specs */}
               <div className="reveal reveal-delay-3 mt-10 space-y-3">
-                <p className="text-label text-signal-deep mb-4">Target Specifications</p>
+                <p className="text-label text-signal mb-4">Target Specifications</p>
                 {[
                   ['Length', '3.355 m (11 ft)'],
                   ['Beam', '2.25 m max'],
@@ -49,9 +50,9 @@ export default function BuildPage() {
                   ['Foiling Speed', '15–20+ knots'],
                   ['Construction', 'Sustainable composites'],
                 ].map(([label, value]) => (
-                  <div key={label} className="flex justify-between items-baseline py-2 border-b border-light-border">
-                    <span className="text-sm text-void/60">{label}</span>
-                    <span className="font-mono text-sm text-void font-medium">{value}</span>
+                  <div key={label} className="flex justify-between items-baseline py-2 border-b border-slate/30">
+                    <span className="text-sm text-steel/80">{label}</span>
+                    <span className="font-mono text-sm text-white font-medium">{value}</span>
                   </div>
                 ))}
               </div>
@@ -59,7 +60,7 @@ export default function BuildPage() {
 
             {/* Image Placeholder */}
             <div className="reveal reveal-delay-1">
-              <div className="aspect-[3/4] bg-light-border relative overflow-hidden">
+              <div className="aspect-[3/4] bg-slate/20 relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <p className="text-label text-mid mb-2">Image placeholder</p>
@@ -73,12 +74,14 @@ export default function BuildPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* Engineering Systems */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-light section-padding">
         <div className="container-full">
           <div className="text-center mb-16">
-            <p className="reveal text-label text-signal mb-4">Engineering Systems</p>
-            <h2 className="reveal reveal-delay-1 text-section text-white">
+            <p className="reveal text-label text-signal-deep mb-4">Engineering Systems</p>
+            <h2 className="reveal reveal-delay-1 text-section text-void">
               Five integrated systems
             </h2>
           </div>
@@ -111,15 +114,17 @@ export default function BuildPage() {
                 desc: 'Full lifecycle assessment on every material. Bio-based resins, natural fibre reinforcements, recycled core materials. Every choice measured.',
               },
             ].map((system) => (
-              <div key={system.num} className="card-dark p-8">
-                <span className="text-label text-signal">{system.num}</span>
-                <h3 className="font-display text-lg font-medium text-white mt-4 mb-3">{system.title}</h3>
-                <p className="text-sm text-steel/80 leading-relaxed">{system.desc}</p>
+              <div key={system.num} className="card-light p-8">
+                <span className="text-label text-signal-deep">{system.num}</span>
+                <h3 className="font-display text-lg font-medium text-void mt-4 mb-3">{system.title}</h3>
+                <p className="text-sm text-void/70 leading-relaxed">{system.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </RevealSection>
+
+      <SectionDivider topTheme="light" bottomTheme="carbon" flip />
 
       {/* Full Timeline */}
       <RevealSection className="section-carbon section-padding">
@@ -134,6 +139,8 @@ export default function BuildPage() {
           <RoadmapTimeline />
         </div>
       </RevealSection>
+
+      <SectionDivider topTheme="carbon" bottomTheme="void" />
 
       {/* Design Process */}
       <RevealSection className="section-dark section-padding">
@@ -168,36 +175,7 @@ export default function BuildPage() {
         </div>
       </RevealSection>
 
-      {/* Image Gallery Placeholder */}
-      <RevealSection className="section-carbon section-padding">
-        <div className="container-full">
-          <p className="reveal text-label text-signal mb-8">Gallery</p>
-          <div className="reveal reveal-delay-1 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="aspect-square bg-slate/20 flex items-center justify-center">
-                <p className="text-xs text-mid font-mono">Image {n}</p>
-              </div>
-            ))}
-          </div>
-          <p className="reveal mt-4 text-xs text-mid">CAD renders, CFD visualizations, material samples, and fabrication process documentation will be added as the build progresses.</p>
-        </div>
-      </RevealSection>
 
-      {/* CTA */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial text-center">
-          <h2 className="reveal text-subsection text-white mb-6">
-            Follow the build process
-          </h2>
-          <p className="reveal reveal-delay-1 text-steel mb-8 max-w-lg mx-auto">
-            We document every phase — design decisions, material testing, fabrication milestones. The proof is public.
-          </p>
-          <div className="reveal reveal-delay-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/updates" className="btn-primary">Latest updates</Link>
-            <Link href="/partners" className="btn-secondary">Explore partnership</Link>
-          </div>
-        </div>
-      </RevealSection>
     </>
   );
 }

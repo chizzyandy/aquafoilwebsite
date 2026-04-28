@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'The Build', href: '/build' },
   { label: 'Partners', href: '/partners' },
-  { label: 'Updates', href: '/updates' },
   { label: 'Join', href: '/join' },
 ];
 

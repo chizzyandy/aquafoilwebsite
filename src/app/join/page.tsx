@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
+import SectionDivider from '@/components/SectionDivider';
 
 export default function JoinPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -40,6 +41,8 @@ export default function JoinPage() {
           </p>
         </div>
       </section>
+
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* What You Get */}
       <RevealSection className="section-carbon section-padding">
@@ -83,12 +86,14 @@ export default function JoinPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* Roles */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-light section-padding">
         <div className="container-editorial">
           <div className="mb-12">
-            <p className="reveal text-label text-signal mb-4">Open Positions</p>
-            <h2 className="reveal reveal-delay-1 text-subsection text-white">
+            <p className="reveal text-label text-signal-deep mb-4">Open Positions</p>
+            <h2 className="reveal reveal-delay-1 text-subsection text-void">
               We are recruiting across all Sub-Teams
             </h2>
           </div>
@@ -101,15 +106,15 @@ export default function JoinPage() {
               { role: 'CAD & Design', dept: 'Mechanical', desc: 'SolidWorks and parametric modeling. Component and assembly design.' },
               { role: 'Buisness & Sponsorship', dept: 'Business', desc: 'Sponsorship management, marketing, and communications.' },
             ].map((position) => (
-              <div key={position.role} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-4 border-b border-slate/20">
+              <div key={position.role} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-4 border-b border-light-border">
                 <div className="md:w-1/3">
-                  <h3 className="font-display text-base font-medium text-white">{position.role}</h3>
+                  <h3 className="font-display text-base font-medium text-void">{position.role}</h3>
                 </div>
                 <div className="md:w-1/6">
-                  <span className="text-label text-signal text-[10px]">{position.dept}</span>
+                  <span className="text-label text-signal-deep text-[10px]">{position.dept}</span>
                 </div>
                 <div className="md:flex-1">
-                  <p className="text-sm text-steel">{position.desc}</p>
+                  <p className="text-sm text-void/70">{position.desc}</p>
                 </div>
               </div>
             ))}
@@ -117,16 +122,18 @@ export default function JoinPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="light" bottomTheme="carbon" flip />
+
       {/* Application Form */}
-      <RevealSection className="section-light section-padding">
+      <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <p className="reveal text-label text-signal-deep mb-4">Apply</p>
-              <h2 className="reveal reveal-delay-1 text-section text-void">
+              <p className="reveal text-label text-signal mb-4">Apply</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white">
                 Express your interest
               </h2>
-              <p className="reveal reveal-delay-2 text-base text-void/60 mt-4">
+              <p className="reveal reveal-delay-2 text-base text-steel mt-4">
                 All Queen&apos;s students are eligible. Tell us about your skills, your experience, and what you want to contribute.
               </p>
             </div>
@@ -138,39 +145,39 @@ export default function JoinPage() {
                     <path d="M5 13l4 4L19 7" stroke="#00BFB3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <h3 className="font-display text-2xl font-medium text-void mb-3">Application received</h3>
-                <p className="text-void/60">We will review your application and respond within one week.</p>
+                <h3 className="font-display text-2xl font-medium text-white mb-3">Application received</h3>
+                <p className="text-steel">We will review your application and respond within one week.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="reveal reveal-delay-2 space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-label text-void/60 mb-2 block">Full Name *</label>
+                    <label className="text-label text-steel mb-2 block">Full Name *</label>
                     <input
                       type="text"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm"
+                      className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm placeholder:text-steel"
                     />
                   </div>
                   <div>
-                    <label className="text-label text-void/60 mb-2 block">Email *</label>
+                    <label className="text-label text-steel mb-2 block">Email *</label>
                     <input
                       type="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm"
+                      className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm placeholder:text-steel"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-label text-void/60 mb-2 block">Program *</label>
+                    <label className="text-label text-steel mb-2 block">Program *</label>
                     <input
                       type="text"
                       name="program"
@@ -178,17 +185,17 @@ export default function JoinPage() {
                       placeholder="e.g., Mechanical Engineering"
                       value={formData.program}
                       onChange={handleChange}
-                      className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm placeholder:text-mid"
+                      className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm placeholder:text-steel"
                     />
                   </div>
                   <div>
-                    <label className="text-label text-void/60 mb-2 block">Year *</label>
+                    <label className="text-label text-steel mb-2 block">Year *</label>
                     <select
                       name="year"
                       required
                       value={formData.year}
                       onChange={handleChange}
-                      className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm"
+                      className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm"
                     >
                       <option value="">Select year</option>
                       <option value="1">First Year</option>
@@ -201,13 +208,13 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label className="text-label text-void/60 mb-2 block">Area of Interest *</label>
+                  <label className="text-label text-steel mb-2 block">Area of Interest *</label>
                   <select
                     name="discipline"
                     required
                     value={formData.discipline}
                     onChange={handleChange}
-                    className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm"
+                    className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm"
                   >
                     <option value="">Select discipline</option>
                     <option value="structures">Structures & Composites</option>
@@ -221,30 +228,30 @@ export default function JoinPage() {
                 </div>
 
                 <div>
-                  <label className="text-label text-void/60 mb-2 block">Relevant Experience</label>
+                  <label className="text-label text-steel mb-2 block">Relevant Experience</label>
                   <textarea
                     name="experience"
                     rows={3}
                     placeholder="CAD software, fabrication experience, relevant coursework, design teams, personal projects..."
                     value={formData.experience}
                     onChange={handleChange}
-                    className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm placeholder:text-mid resize-none"
+                    className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm placeholder:text-steel resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="text-label text-void/60 mb-2 block">Why aQuaFoil?</label>
+                  <label className="text-label text-steel mb-2 block">Why aQuaFoil?</label>
                   <textarea
                     name="message"
                     rows={3}
                     placeholder="What draws you to this project?"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-white border border-light-border text-void px-4 py-3 text-sm placeholder:text-mid resize-none"
+                    className="w-full bg-void border border-slate/30 text-white px-4 py-3 text-sm placeholder:text-steel resize-none"
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full justify-center !bg-void !text-white hover:!bg-signal hover:!text-void">
+                <button type="submit" className="btn-primary w-full justify-center">
                   Submit Application
                 </button>
               </form>
@@ -252,6 +259,8 @@ export default function JoinPage() {
           </div>
         </div>
       </RevealSection>
+
+      <SectionDivider topTheme="carbon" bottomTheme="void" />
 
       {/* Contact */}
       <RevealSection className="section-dark section-padding">

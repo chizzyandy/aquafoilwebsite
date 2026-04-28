@@ -21,15 +21,20 @@ const phaseSummaries: Record<string, string> = {
 
 const statusLabel: Record<string, string> = {
   completed: 'Complete',
-  active:    'In Progress',
-  upcoming:  'Upcoming',
+  active: 'In Progress',
+  upcoming: 'Upcoming',
 };
 
-export default function RoadmapTimeline() {
+export interface RoadmapTimelineProps {
+  limitActive?: number;
+  linkLearnMoreToBuild?: boolean;
+}
+
+export default function RoadmapTimeline({ limitActive, linkLearnMoreToBuild }: RoadmapTimelineProps = {}) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [progressPct, setProgressPct] = useState(0);
-  const trackRef   = useRef<HTMLDivElement>(null);
-  const nodeRefs   = useRef<(HTMLDivElement | null)[]>([]);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   /* ── scroll → progress fill ── */
   useEffect(() => {
@@ -74,107 +79,138 @@ export default function RoadmapTimeline() {
           <div className={s.railFill} style={{ height: `${progressPct}%` }} />
         </div>
 
-        {timelinePhases.map((phase, index) => {
-          const isLeft     = index % 2 === 0;
-          const isActive   = phase.status === 'active';
-          const isComplete = phase.status === 'completed';
-          const isUpcoming = phase.status === 'upcoming';
-          const isOpen     = expanded[phase.id] ?? false;
+        {(() => {
+          let displayPhases = timelinePhases;
+          if (limitActive) {
+            displayPhases = timelinePhases.filter(p => p.status === 'active').slice(0, limitActive);
+          }
+          return displayPhases.map((phase, index) => {
+            const isLeft = index % 2 === 0;
+            const isActive = phase.status === 'active';
+            const isComplete = phase.status === 'completed';
+            const isUpcoming = phase.status === 'upcoming';
+            const isOpen = expanded[phase.id] ?? false;
 
-          /* compose node classes */
-          const nodeClasses = [
-            s.node,
-            isLeft ? s.nodeLeft : s.nodeRight,
-          ].join(' ');
+            /* compose node classes */
+            const nodeClasses = [
+              s.node,
+              isLeft ? s.nodeLeft : s.nodeRight,
+            ].join(' ');
 
-          /* compose card classes */
-          const cardClasses = [
-            s.card,
-            isActive   ? s.cardActive   : '',
-            isUpcoming ? s.cardUpcoming : '',
-          ].join(' ');
+            /* compose card classes */
+            const cardClasses = [
+              s.card,
+              isActive ? s.cardActive : '',
+              isUpcoming ? s.cardUpcoming : '',
+            ].join(' ');
 
-          return (
-            <div
-              key={phase.id}
-              ref={(el) => { nodeRefs.current[index] = el; }}
-              className={nodeClasses}
-            >
-              {/* dot */}
-              <div className={s.dotWrap} aria-hidden="true">
-                <div className={[
-                  s.dot,
-                  isComplete ? s.dotCompleted : '',
-                  isActive   ? s.dotActive   : '',
-                  isUpcoming ? s.dotUpcoming : '',
-                ].join(' ')}>
-                  {isComplete && (
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                  {isActive && <span className={s.dotPulse} />}
-                </div>
-              </div>
-
-              {/* content card */}
-              <div className={cardClasses}>
-                <div className={s.cardHeader}>
-                  <span className={s.phaseLabel}>{phase.phase}</span>
-                  <span className={[
-                    s.badge,
-                    isComplete ? s.badgeCompleted : '',
-                    isActive   ? s.badgeActive   : '',
-                    isUpcoming ? s.badgeUpcoming : '',
+            return (
+              <div
+                key={phase.id}
+                ref={(el) => { nodeRefs.current[index] = el; }}
+                className={nodeClasses}
+              >
+                {/* dot */}
+                <div className={s.dotWrap} aria-hidden="true">
+                  <div className={[
+                    s.dot,
+                    isComplete ? s.dotCompleted : '',
+                    isActive ? s.dotActive : '',
+                    isUpcoming ? s.dotUpcoming : '',
                   ].join(' ')}>
-                    {statusLabel[phase.status]}
-                  </span>
+                    {isComplete && (
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M2 5l2.5 2.5L8 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                    {isActive && <span className={s.dotPulse} />}
+                  </div>
                 </div>
 
-                <h3 className={[s.title, isUpcoming ? s.titleUpcoming : ''].join(' ')}>
-                  {phase.title}
-                </h3>
-                <p className={s.period}>{phase.period}</p>
-                <p className={s.summary}>{phaseSummaries[phase.id]}</p>
+                {/* content card */}
+                <div className={cardClasses}>
+                  <div className={s.cardHeader}>
+                    <span className={s.phaseLabel}>{phase.phase}</span>
+                    <span className={[
+                      s.badge,
+                      isComplete ? s.badgeCompleted : '',
+                      isActive ? s.badgeActive : '',
+                      isUpcoming ? s.badgeUpcoming : '',
+                    ].join(' ')}>
+                      {statusLabel[phase.status]}
+                    </span>
+                  </div>
 
-                <button
-                  className={s.expandBtn}
-                  onClick={() => toggle(phase.id)}
-                  aria-expanded={isOpen}
-                >
-                  <span>{isOpen ? 'Show less' : 'Learn more'}</span>
-                  <svg
-                    width="12" height="12" viewBox="0 0 12 12" fill="none"
-                    className={[s.chevron, isOpen ? s.chevronOpen : ''].join(' ')}
-                  >
-                    <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
+                  <h3 className={[s.title, isUpcoming ? s.titleUpcoming : ''].join(' ')}>
+                    {phase.title}
+                  </h3>
+                  <p className={s.period}>{phase.period}</p>
+                  <p className={s.summary}>{phaseSummaries[phase.id]}</p>
 
-                <div className={[s.detail, isOpen ? s.detailOpen : ''].join(' ')}>
-                  <p className={s.detailBody}>{phase.description}</p>
-                  <ul className={s.milestones}>
-                    {phase.milestones.map((m, mi) => (
-                      <li key={mi}>{m}</li>
-                    ))}
-                  </ul>
+                  {linkLearnMoreToBuild ? (
+                    <Link href={`/build#phase-${phase.id}`} className={s.expandBtn}>
+                      <span>Learn more</span>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className={s.chevron}>
+                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        className={s.expandBtn}
+                        onClick={() => toggle(phase.id)}
+                        aria-expanded={isOpen}
+                      >
+                        <span>{isOpen ? 'Show less' : 'Learn more'}</span>
+                        <svg
+                          width="12" height="12" viewBox="0 0 12 12" fill="none"
+                          className={[s.chevron, isOpen ? s.chevronOpen : ''].join(' ')}
+                        >
+                          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+
+                      <div className={[s.detail, isOpen ? s.detailOpen : ''].join(' ')}>
+                        <p className={s.detailBody}>{phase.description}</p>
+                        <ul className={s.milestones}>
+                          {phase.milestones.map((m, mi) => (
+                            <li key={mi}>{m}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          });
+        })()}
       </div>
 
       <div className={s.cta}>
-        <Link
-          href="/build"
-          className="inline-flex items-center gap-2 text-sm text-steel hover:text-signal transition-colors duration-200"
-        >
-          Full project timeline
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </Link>
+        {limitActive ? (
+          <Link
+            href="/build"
+            className="inline-flex items-center gap-2 text-sm text-steel hover:text-signal transition-colors duration-200"
+          >
+            Full project timeline
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        ) : (
+          <a
+            href="/gantt.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-steel hover:text-signal transition-colors duration-200"
+          >
+            Full project timeline (PDF)
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        )}
       </div>
     </div>
   );

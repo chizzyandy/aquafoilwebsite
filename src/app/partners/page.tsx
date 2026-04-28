@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
+import SectionDivider from '@/components/SectionDivider';
 import { partners, partnershipValues } from '@/data/partners';
 
 export default function PartnersPage() {
@@ -20,6 +21,8 @@ export default function PartnersPage() {
           </p>
         </div>
       </section>
+
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* Value Proposition */}
       <RevealSection className="section-carbon section-padding">
@@ -50,24 +53,28 @@ export default function PartnersPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* Project Stats */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-light section-padding">
         <div className="container-editorial">
-          <div className="reveal grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 py-12 border-t border-b border-slate/30">
-            <StatCounter value={20} suffix="+" label="Team Members" />
-            <StatCounter value={5} label="Sub-Teams" />
-            <StatCounter value={2} label="Industry Advisors" />
+          <div className="reveal grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 py-12">
+            <StatCounter value={20} suffix="+" label="Team Members" theme="light" />
+            <StatCounter value={5} label="Sub-Teams" theme="light" />
+            <StatCounter value={2} label="Industry Advisors" theme="light" />
           </div>
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="light" bottomTheme="void" flip />
+
       {/* What Partners Get */}
-      <RevealSection className="section-light section-padding">
+      <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5">
-              <p className="reveal text-label text-signal-deep mb-4">Partner Benefits</p>
-              <h2 className="reveal reveal-delay-1 text-section text-void">
+              <p className="reveal text-label text-signal mb-4">Partner Benefits</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white">
                 What you receive
               </h2>
             </div>
@@ -95,9 +102,9 @@ export default function PartnersPage() {
                     desc: 'Representation at the SuMoth Challenge 2027, university events, and industry showcases where the vessel is exhibited.',
                   },
                 ].map((benefit, i) => (
-                  <div key={benefit.title} className={`py-6 ${i > 0 ? 'border-t border-light-border' : ''}`}>
-                    <h3 className="font-display text-lg font-medium text-void mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-void/60 leading-relaxed">{benefit.desc}</p>
+                  <div key={benefit.title} className={`py-6 ${i > 0 ? 'border-t border-slate/30' : ''}`}>
+                    <h3 className="font-display text-lg font-medium text-white mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-steel/80 leading-relaxed">{benefit.desc}</p>
                   </div>
                 ))}
               </div>
@@ -106,8 +113,10 @@ export default function PartnersPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
+
       {/* Current Partners */}
-      <RevealSection className="section-dark section-padding">
+      <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="text-center mb-16">
             <p className="reveal text-label text-signal mb-16">Current Partners</p>
@@ -142,20 +151,22 @@ export default function PartnersPage() {
         </div>
       </RevealSection>
 
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
+
       {/* Contact */}
-      <RevealSection id="contact" className="section-carbon section-padding">
+      <RevealSection id="contact" className="section-light section-padding">
         <div className="container-editorial">
           <div className="max-w-2xl mx-auto text-center">
             <div className="reveal">
               <div className="signal-line mx-auto mb-8" />
             </div>
-            <h2 className="reveal reveal-delay-1 text-section text-white mb-6">
+            <h2 className="reveal reveal-delay-1 text-section text-void mb-6">
               Begin a conversation
             </h2>
-            <p className="reveal reveal-delay-2 text-lg text-steel mb-4 leading-relaxed">
+            <p className="reveal reveal-delay-2 text-lg text-void/70 mb-4 leading-relaxed">
               We welcome partnership inquiries from engineering, materials, manufacturing, and sustainability-focused organizations.
             </p>
-            <p className="reveal reveal-delay-3 text-base text-steel/80 mb-10">
+            <p className="reveal reveal-delay-3 text-base text-void/60 mb-10">
               For partnership discussions, contact us directly.
             </p>
 
@@ -169,11 +180,11 @@ export default function PartnersPage() {
             </div>
 
             <div className="reveal reveal-delay-5 mt-8 flex items-center justify-center gap-6">
-              <a href="https://www.instagram.com/aqua.foil/" target="_blank" rel="noopener noreferrer" className="text-sm text-steel hover:text-signal transition-colors">
+              <a href="https://www.instagram.com/aqua.foil/" target="_blank" rel="noopener noreferrer" className="text-sm text-void/70 hover:text-signal-deep transition-colors">
                 Instagram
               </a>
-              <span className="text-slate">·</span>
-              <a href="https://www.linkedin.com/company/aquafoil-design-team/" target="_blank" rel="noopener noreferrer" className="text-sm text-steel hover:text-signal transition-colors">
+              <span className="text-mid">·</span>
+              <a href="https://www.linkedin.com/company/aquafoil-design-team/" target="_blank" rel="noopener noreferrer" className="text-sm text-void/70 hover:text-signal-deep transition-colors">
                 LinkedIn
               </a>
             </div>
