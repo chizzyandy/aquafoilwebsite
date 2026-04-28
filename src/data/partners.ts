@@ -1,6 +1,6 @@
 export interface Partner {
   name: string;
-  tier: 'founding' | 'technical' | 'supporting';
+  tier: 'founding' | 'technical' | 'supporting' | 'software';
   logo?: string;
   url?: string;
   description?: string;
@@ -14,35 +14,33 @@ export const partners: Partner[] = [
     description: "Institutional home and faculty support. ",
     logo: "/images/partners/smith-logo.svg",
   },
-  // Add partners here as they are confirmed
-  // {
-  //   name: "Partner Name",
-  //   tier: "technical",
-  //   logo: "/images/partners/partner-logo.svg",
-  //   url: "https://partner.com",
-  //   description: "Brief description of partnership.",
-  // },
+  {
+    name: "SolidWorks",
+    tier: "software",
+    url: "https://www.solidworks.com/",
+    logo: "https://icon.horse/icon/solidworks.com",
+    description: "CAD and parametric modelling platform used across mechanical design and assembly.",
+  },
+  {
+    name: "Ansys",
+    tier: "software",
+    url: "https://www.ansys.com/",
+    logo: "/images/partners/ansys-logo.png",
+    description: "Structural simulation and finite element analysis for load case validation.",
+  },
 ];
 
 export const partnershipValues = [
   {
-    title: "Engineering Relevance",
-    description: "Direct connection to real design decisions in materials, fabrication, and structural engineering at the competitive edge.",
+    title: "Proof, Not Claims",
+    description: "Every decision — materials, geometry, fabrication — is validated by CFD, FEA, and lifecycle assessment. Your brand is tied to documented engineering outcomes, not marketing language.",
   },
   {
-    title: "Sustainable Performance Proof",
-    description: "Evidence — not claims — that sustainability and performance are compatible in serious engineering contexts.",
+    title: "Talent Before the Market",
+    description: "Direct access to Smith Engineering students in CFD, composites, manufacturing, and structural analysis — before they graduate. Lab visits, design reviews, resume bank, and internship pipeline included.",
   },
   {
-    title: "Talent Pipeline",
-    description: "Access and visibility with the next generation of precision engineers at Queen's University.",
-  },
-  {
-    title: "Technical Storytelling",
-    description: "Your brand associated with credible, photogenic, measurable engineering work. Real content, real attribution.",
-  },
-  {
-    title: "Brand Alignment",
-    description: "Early-stage partnership with a programme built for prominence. The first partners will be the most visible.",
+    title: "First-Mover Advantage",
+    description: "We are confirming 2026–2027 partners now. Early partners receive primary placement and the deepest association with the programme across an 18-month build cycle to Lake Garda.",
   },
 ];

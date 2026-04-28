@@ -66,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          02 — WHAT IS AQUAFOIL
+          02 — WHAT IS AQUAFOIL + WHY IT MATTERS
       ═══════════════════════════════════════════ */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
@@ -75,7 +75,7 @@ export default function Home() {
               <div className="reveal">
                 <p className="text-label text-signal mb-4">01 — What is aQuaFoil</p>
                 <h2 className="text-section text-white">
-                  The proof is in the performance
+                  Compete today. Sustain tomorrow.
                 </h2>
               </div>
             </div>
@@ -84,10 +84,12 @@ export default function Home() {
                 <p className="text-lg text-steel leading-relaxed mb-6">
                   aQuaFoil is Queen&apos;s University&apos;s newest sustainable design team. We are building a foiling Moth for the 2027 edition of the SuMoth Challenge.
                 </p>
-                <p className="text-base text-steel/80 leading-relaxed mb-8">
-                  Sustainability is our design objective. Our goal is simple: to lead the marine industry into a new era of sustainable design.
+                <p className="text-base text-steel/80 leading-relaxed mb-6">
+                  The marine industry is under pressure to demonstrate sustainability credentials. At the same time, performance standards continue to rise. aQuaFoil aims to solve both — in a competitive context that makes neither optional.
                 </p>
-                <div className="signal-line" />
+                <p className="text-base text-steel/70 leading-relaxed">
+                  A foiling Moth rewards precision engineering and innovative design. That balance makes it a perfect platform for learning, building, and racing.
+                </p>
               </div>
             </div>
           </div>
@@ -103,29 +105,7 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="void" bottomTheme="carbon" />
-
-      {/* ═══════════════════════════════════════════
-          03 — WHY THIS MATTERS
-      ═══════════════════════════════════════════ */}
-      <RevealSection className="section-carbon section-padding">
-        <div className="container-editorial">
-          <div className="max-w-3xl">
-            <p className="reveal text-label text-signal mb-4">02 — Why this matters</p>
-            <h2 className="reveal reveal-delay-1 text-section text-white mb-8">
-              High performance and sustainability are not mutually exclusive.
-            </h2>
-            <p className="reveal reveal-delay-2 text-lg text-steel leading-relaxed mb-6">
-              The marine industry is under pressure to demonstrate sustainability credentials. At the same time, performance standards continue to rise.
-            </p>
-            <p className="reveal reveal-delay-3 text-base text-steel/80 leading-relaxed">
-              aQuaFoil aims to solve this objective in a competitive context that makes both non-negotiable. A foiling Moth rewards precision engineering and innovative design. That balance makes it a perfect platform for learning, building, and racing.
-            </p>
-          </div>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="carbon" bottomTheme="light" />
+      <SectionDivider topTheme="void" bottomTheme="light" />
 
       {/* ═══════════════════════════════════════════
           04 — WHAT WE'RE BUILDING
@@ -143,22 +123,22 @@ export default function Home() {
               <div className="reveal reveal-delay-2 space-y-4 mb-10">
                 <div className="flex gap-4 items-start">
                   <span className="text-label text-signal-deep mt-0.5 shrink-0 w-20">Hull</span>
-                  <p className="text-sm text-void/70">Bio-composite construction using sustainable reinforcement fibres and bio-based epoxy resin systems.</p>
+                  <p className="text-sm text-void/70">Bio-composite construction — sustainable fibres, bio-based resins, weight-optimized for flight.</p>
                 </div>
                 <div className="w-full h-px bg-slate/10" />
                 <div className="flex gap-4 items-start">
                   <span className="text-label text-signal-deep mt-0.5 shrink-0 w-20">Foils</span>
-                  <p className="text-sm text-void/70">CFD-optimized hydrofoil profiles. OpenFOAM simulation pipeline for lift, drag, and cavitation analysis.</p>
+                  <p className="text-sm text-void/70">CFD-optimized hydrofoil profiles designed to fly, not just float.</p>
                 </div>
                 <div className="w-full h-px bg-slate/10" />
                 <div className="flex gap-4 items-start">
                   <span className="text-label text-signal-deep mt-0.5 shrink-0 w-20">Rig</span>
-                  <p className="text-sm text-void/70">Integrated sail and control systems designed for competitive performance within sustainability constraints.</p>
+                  <p className="text-sm text-void/70">Sail and control systems tuned for competitive performance within strict sustainability constraints.</p>
                 </div>
                 <div className="w-full h-px bg-slate/10" />
                 <div className="flex gap-4 items-start">
                   <span className="text-label text-signal-deep mt-0.5 shrink-0 w-20">Analysis</span>
-                  <p className="text-sm text-void/70">FEA structural validation. Full lifecycle material assessment. Every decision measured.</p>
+                  <p className="text-sm text-void/70">Every material choice backed by FEA, lifecycle assessment, and documented trade-off data.</p>
                 </div>
               </div>
               <Link href="/build" className="inline-flex items-center gap-2 text-sm font-medium text-signal-deep hover:text-void transition-colors">
@@ -209,7 +189,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <p className="reveal text-label text-signal mb-4">05 — The roadmap</p>
             <h2 className="reveal reveal-delay-1 text-section text-white">
-              From concept to start line
+              The road to 2027
             </h2>
           </div>
 
@@ -228,10 +208,10 @@ export default function Home() {
           <div className="text-center mb-16">
             <p className="reveal text-label text-signal-deep mb-4">06 — Partnership</p>
             <h2 className="reveal reveal-delay-1 text-section text-void mb-6">
-              Strategic alignment, not logo placement
+              Supporting Student Ambition
             </h2>
             <p className="reveal reveal-delay-2 text-lg text-void/70 max-w-2xl mx-auto leading-relaxed">
-              aQuaFoil offers direct association with a precision engineering programme built around the same performance and sustainability standards your industry is navigating.
+              By sponsoring aQuaFoil, you help students develop technical, teamwork, and project management skills while advancing sustainable foiling technology.
             </p>
           </div>
 

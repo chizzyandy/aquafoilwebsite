@@ -4,6 +4,7 @@ import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
 import SectionDivider from '@/components/SectionDivider';
+import ContactBlock from '@/components/ContactBlock';
 import { partners, partnershipValues } from '@/data/partners';
 
 export default function PartnersPage() {
@@ -17,7 +18,7 @@ export default function PartnersPage() {
             Helping Students Learn Skills for a Lifetime
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            By sponsoring aQuaFoil, you give students the opportunity to develop technical, teamwork, and project management skills while advancing sustainable foiling technology.
+            Your brand. A competition vessel. Real engineering students. Partnership with aQuaFoil puts you at the intersection of precision manufacturing, sustainable materials, and the next generation of technical talent.
           </p>
         </div>
       </section>
@@ -33,13 +34,13 @@ export default function PartnersPage() {
               What partnership means
             </h2>
             <p className="reveal reveal-delay-2 text-lg text-steel max-w-2xl leading-relaxed">
-              aQuaFoil offers direct association with a precision engineering programme built around the same performance and sustainability standards your industry is navigating.
+              Five reasons aQuaFoil is a different kind of partnership — not a donation, not a logo placement, but an 18-month association with a programme built around the same standards your industry is navigating.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {partnershipValues.map((value, i) => (
-              <div key={value.title} className={`reveal reveal-delay-${Math.min(i + 1, 5)} card-dark p-8`}>
+              <div key={value.title} className={`reveal reveal-delay-${i + 1} card-dark p-8`}>
                 <div className="signal-line mb-6" />
                 <h3 className="font-display text-lg font-medium text-white mb-3">
                   {value.title}
@@ -82,24 +83,24 @@ export default function PartnersPage() {
               <div className="reveal reveal-delay-2 space-y-6">
                 {[
                   {
-                    title: 'Brand Visibility',
-                    desc: 'Logo placement on the vessel, team apparel, website, and all competition media. Your brand associated with precision engineering and measurable sustainability.',
+                    title: 'Logo Placement',
+                    desc: 'On the vessel hull, team apparel, website, and all competition media at Lake Garda. Size and placement scale with partnership tier.',
                   },
                   {
-                    title: 'Content & Documentation',
-                    desc: 'High-quality photography, video content, and technical documentation featuring your brand and products in an authentic engineering context.',
+                    title: 'Build Content',
+                    desc: 'Professional photography and video across the full 18-month build cycle — fabrication, testing, sea trials, and race day. Delivered for your own use.',
                   },
                   {
-                    title: 'Talent Access',
-                    desc: 'Direct connection to top engineering students at Queen\'s University. Recruiting pipeline to the next generation of precision engineers.',
+                    title: 'Talent Touchpoints',
+                    desc: 'Technical info session with the team, lab visit and design review, access to a resume bank, and a structured internship pipeline into CFD, composites, manufacturing, and structural engineering roles.',
                   },
                   {
                     title: 'Technical Collaboration',
-                    desc: 'For materials and technology partners: real-world testing data, application case studies, and engineering feedback on your products.',
+                    desc: 'For materials and technology partners: your products used in a real build, with performance data, lifecycle assessment results, and a published engineering case study.',
                   },
                   {
-                    title: 'Event Presence',
-                    desc: 'Representation at the SuMoth Challenge 2027, university events, and industry showcases where the vessel is exhibited.',
+                    title: 'Competition Representation',
+                    desc: 'Your brand present at the SuMoth Challenge 2027 in Lake Garda, Italy — alongside 15 teams from 7 nations — and at all university showcases leading up to it.',
                   },
                 ].map((benefit, i) => (
                   <div key={benefit.title} className={`py-6 ${i > 0 ? 'border-t border-slate/30' : ''}`}>
@@ -119,30 +120,46 @@ export default function PartnersPage() {
       <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="text-center mb-16">
-            <p className="reveal text-label text-signal mb-16">Current Partners</p>
+            <p className="reveal text-label text-signal">Current Partners</p>
           </div>
 
-          <div className="reveal reveal-delay-2 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {partners.map((partner) => (
+          {/* Institutional */}
+          <div className="reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
+            {partners.filter(p => p.tier !== 'software').map((partner) => (
               <div key={partner.name} className="card-dark p-8 text-center">
                 <div className="w-full h-24 md:h-28 flex items-center justify-center mb-4">
                   {partner.logo ? (
                     <a href={partner.url} target="_blank" rel="noopener noreferrer">
-                      <img
-                        src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        className="w-320 h-112 object-contain"
-                      />
+                      <img src={partner.logo} alt={`${partner.name} logo`} className="w-320 h-112 object-contain" />
                     </a>
                   ) : (
                     <span className="font-display text-lg font-medium text-white">{partner.name}</span>
                   )}
                 </div>
-                {partner.description && (
-                  <p className="text-xs text-steel">{partner.description}</p>
-                )}
+                {partner.description && <p className="text-xs text-steel">{partner.description}</p>}
               </div>
             ))}
+          </div>
+
+          {/* Software */}
+          <div className="reveal reveal-delay-2 border-t border-white/10 pt-12">
+            <p className="text-label text-signal mb-8 text-center">Software</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {partners.filter(p => p.tier === 'software').map((partner) => (
+                <div key={partner.name} className="card-dark p-8 text-center">
+                  <div className="w-full h-20 flex items-center justify-center mb-4">
+                    {partner.logo ? (
+                      <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                        <img src={partner.logo} alt={`${partner.name} logo`} className="h-12 object-contain" />
+                      </a>
+                    ) : (
+                      <span className="font-display text-lg font-medium text-white">{partner.name}</span>
+                    )}
+                  </div>
+                  {partner.description && <p className="text-xs text-steel">{partner.description}</p>}
+                </div>
+              ))}
+            </div>
           </div>
 
           <p className="reveal mt-12 text-center text-sm text-steel">
@@ -156,39 +173,15 @@ export default function PartnersPage() {
       {/* Contact */}
       <RevealSection id="contact" className="section-light section-padding">
         <div className="container-editorial">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="reveal">
-              <div className="signal-line mx-auto mb-8" />
-            </div>
-            <h2 className="reveal reveal-delay-1 text-section text-void mb-6">
-              Begin a conversation
-            </h2>
-            <p className="reveal reveal-delay-2 text-lg text-void/70 mb-4 leading-relaxed">
-              We welcome partnership inquiries from engineering, materials, manufacturing, and sustainability-focused organizations.
-            </p>
-            <p className="reveal reveal-delay-3 text-base text-void/60 mb-10">
-              For partnership discussions, contact us directly.
-            </p>
-
-            <div className="reveal reveal-delay-4">
-              <a
-                href="mailto:aQuatonomous.FOIL@engsoc.queensu.ca?subject=Partnership%20Inquiry%20—%20aQuaFoil"
-                className="btn-primary text-lg !py-4 !px-10"
-              >
-                aQuatonomous.FOIL@engsoc.queensu.ca
-              </a>
-            </div>
-
-            <div className="reveal reveal-delay-5 mt-8 flex items-center justify-center gap-6">
-              <a href="https://www.instagram.com/aqua.foil/" target="_blank" rel="noopener noreferrer" className="text-sm text-void/70 hover:text-signal-deep transition-colors">
-                Instagram
-              </a>
-              <span className="text-mid">·</span>
-              <a href="https://www.linkedin.com/company/aquafoil-design-team/" target="_blank" rel="noopener noreferrer" className="text-sm text-void/70 hover:text-signal-deep transition-colors">
-                LinkedIn
-              </a>
-            </div>
+          <div className="reveal mb-8">
+            <div className="signal-line mx-auto" />
           </div>
+          <ContactBlock
+            headline="Begin a conversation"
+            body="We welcome partnership inquiries from engineering, materials, manufacturing, and sustainability-focused organizations."
+            emailSubject="Partnership Inquiry — aQuaFoil"
+            theme="light"
+          />
         </div>
       </RevealSection>
     </>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import SectionDivider from '@/components/SectionDivider';
+import ContactBlock from '@/components/ContactBlock';
 
 export default function JoinPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -56,7 +57,7 @@ export default function JoinPage() {
             </div>
             <div className="md:col-span-7">
               <p className="reveal reveal-delay-2 text-lg text-steel leading-relaxed">
-                aQuaFoil operates like a high preformace design team. Real deliverables, real accountability, while keeping the work fun.
+                aQuaFoil operates like a high-performance design team. Real deliverables, real accountability, while keeping the work fun.
               </p>
             </div>
           </div>
@@ -104,7 +105,7 @@ export default function JoinPage() {
               { role: 'CFD & Hydrodynamics', dept: 'CFD', desc: 'OpenFOAM simulations. Foil and hull hydrodynamic analysis.' },
               { role: 'Structural Analysis', dept: 'Structures', desc: 'FEA modeling, load case analysis, structural optimization.' },
               { role: 'CAD & Design', dept: 'Mechanical', desc: 'SolidWorks and parametric modeling. Component and assembly design.' },
-              { role: 'Buisness & Sponsorship', dept: 'Business', desc: 'Sponsorship management, marketing, and communications.' },
+              { role: 'Business & Sponsorship', dept: 'Business', desc: 'Sponsorship management, marketing, and communications.' },
             ].map((position) => (
               <div key={position.role} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-4 border-b border-light-border">
                 <div className="md:w-1/3">
@@ -264,30 +265,12 @@ export default function JoinPage() {
 
       {/* Contact */}
       <RevealSection className="section-dark section-padding">
-        <div className="container-editorial text-center">
-          <h2 className="reveal text-subsection text-white mb-4">
-            Questions?
-          </h2>
-          <p className="reveal reveal-delay-1 text-steel mb-6">
-            Reach out directly. We respond to every inquiry.
-          </p>
-          <div className="reveal reveal-delay-2">
-            <a
-              href="mailto:aQuatonomous.FOIL@engsoc.queensu.ca"
-              className="text-signal hover:text-white transition-colors text-lg font-display"
-            >
-              aQuatonomous.FOIL@engsoc.queensu.ca
-            </a>
-          </div>
-          <div className="reveal reveal-delay-3 mt-8 flex items-center justify-center gap-6">
-            <a href="https://www.instagram.com/aqua.foil/" target="_blank" rel="noopener noreferrer" className="text-sm text-steel hover:text-signal transition-colors">
-              Instagram
-            </a>
-            <span className="text-slate">·</span>
-            <a href="https://www.linkedin.com/company/aquafoil-design-team/" target="_blank" rel="noopener noreferrer" className="text-sm text-steel hover:text-signal transition-colors">
-              LinkedIn
-            </a>
-          </div>
+        <div className="container-editorial">
+          <ContactBlock
+            headline="Questions?"
+            body="Reach out directly. We respond to every inquiry."
+            theme="dark"
+          />
         </div>
       </RevealSection>
     </>

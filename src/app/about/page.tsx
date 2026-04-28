@@ -8,44 +8,31 @@ import { teamLeads, teamMembers, advisors, disciplines } from '@/data/team';
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="section-dark pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* Hero + Mission */}
+      <section className="section-dark pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">About</p>
-          <h1 className="text-hero text-white max-w-3xl">
+          <h1 className="text-hero text-white max-w-3xl mb-16">
             Built to learn
           </h1>
-          <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            aQuaFoil is an opportunity for students to gain real world engineering experience while competing on a global stage.
-          </p>
-        </div>
-      </section>
-
-      {/* Mission */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 border-t border-white/10 pt-12">
             <div className="md:col-span-5">
-              <div className="reveal">
-                <p className="text-label text-signal mb-4">Mission</p>
-                <h2 className="text-subsection text-white">
-                  Performance without compromise
-                </h2>
-              </div>
+              <p className="text-label text-signal mb-4">Mission</p>
+              <h2 className="text-subsection text-white">
+                Performance without compromise
+              </h2>
             </div>
-            <div className="md:col-span-7">
-              <div className="reveal reveal-delay-1">
-                <p className="text-xl text-steel leading-relaxed mb-6">
-                  Our goal is to design and build a competition-grade foiling Moth at Queen&apos;s University.
-                </p>
-                <p className="text-lg text-steel/80 leading-relaxed">
-                  We are learning to push the boundaries of foiling through design and experimentation.
-                </p>
-              </div>
+            <div className="md:col-span-7 flex flex-col justify-center">
+              <p className="text-xl text-steel leading-relaxed mb-6">
+                Our goal is to design and build a competition-grade foiling Moth at Queen&apos;s University.
+              </p>
+              <p className="text-lg text-steel/80 leading-relaxed">
+                aQuaFoil is an opportunity for students to gain real-world engineering experience while competing on a global stage — pushing the boundaries of foiling through design and experimentation.
+              </p>
             </div>
           </div>
         </div>
-      </RevealSection>
+      </section>
 
       <SectionDivider topTheme="void" bottomTheme="carbon" />
 
@@ -75,7 +62,21 @@ export default function AboutPage() {
                 />
               </a>
               <h3 className="font-display text-xl font-medium text-white mb-2">SuMoth Challenge 2027</h3>
-              <p className="text-sm text-steel">The premier sustainable foiling Moth competition. Our design target and proving ground.</p>
+              <p className="text-sm text-steel mb-6">The premier sustainable foiling Moth competition. Our design target and proving ground.</p>
+              <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                <div className="text-center">
+                  <p className="text-data text-2xl text-white mb-1">785</p>
+                  <p className="text-label text-steel text-[10px]">Students</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-data text-2xl text-white mb-1">15</p>
+                  <p className="text-label text-steel text-[10px]">Teams</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-data text-2xl text-white mb-1">7</p>
+                  <p className="text-label text-steel text-[10px]">Nations</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
