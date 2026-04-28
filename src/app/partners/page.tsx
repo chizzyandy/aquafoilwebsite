@@ -14,10 +14,10 @@ export default function PartnersPage() {
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">Partnership</p>
           <h1 className="text-hero text-white max-w-3xl">
-            Strategic alignment, not logo placement
+            Helping Students Learn Skills for a Lifetime
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            This is not logo placement. It is strategic alignment with an engineering platform that is proving something.
+            By sponsoring aQuaFoil, you give students the opportunity to develop technical, teamwork, and project management skills while advancing sustainable foiling technology.
           </p>
         </div>
       </section>
