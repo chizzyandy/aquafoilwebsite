@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import RoadmapTimeline from '@/components/RoadmapTimeline';
 import SectionDivider from '@/components/SectionDivider';
@@ -20,6 +19,66 @@ export default function BuildPage() {
           </p>
         </div>
       </section>
+
+      {/* The Problem We're Solving */}
+      <RevealSection className="section-dark pb-24 md:pb-32">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 border-t border-white/10 pt-12">
+            <div className="md:col-span-5">
+              <p className="reveal text-label text-signal mb-4">The Context</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white">
+                The Problem We&apos;re Solving
+              </h2>
+            </div>
+            <div className="md:col-span-7">
+              <div className="reveal reveal-delay-2 space-y-6">
+                <p className="text-base text-steel leading-relaxed">
+                  Every engineering decision we make is framed by the environmental reality of our industry. Annually, 200,000 boats reach end-of-life in the U.S. with no scalable recycling pathway for fiberglass. In the EU, over 100,000 fiberglass boats reach end-of-life per year, but only ~2,000 are recycled.
+                </p>
+                <p className="text-base text-steel leading-relaxed">
+                  Furthermore, carbon fiber composites carry a carbon footprint 2–5x higher than previously estimated. The materials that make foiling possible are the same materials filling our landfills. We are building the alternative.
+                </p>
+              </div>
+              
+              <div className="reveal reveal-delay-3 mt-10 overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/20">
+                      <th className="py-3 px-4 text-sm font-medium text-white">Metric</th>
+                      <th className="py-3 px-4 text-sm font-medium text-steel">Traditional Build</th>
+                      <th className="py-3 px-4 text-sm font-medium text-signal">Sustainable Build</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm">
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Primary Hull Material</td>
+                      <td className="py-3 px-4 text-steel">Fiberglass / Carbon Fiber</td>
+                      <td className="py-3 px-4 text-signal">Flax Fiber / Timber</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Resin System</td>
+                      <td className="py-3 px-4 text-steel">Synthetic Epoxy</td>
+                      <td className="py-3 px-4 text-signal">Bio-based Epoxy</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Carbon Footprint</td>
+                      <td className="py-3 px-4 text-steel">Baseline</td>
+                      <td className="py-3 px-4 text-signal">60%+ Reduction</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">End of Life</td>
+                      <td className="py-3 px-4 text-steel">Landfill</td>
+                      <td className="py-3 px-4 text-signal">Recyclable / Biodegradable</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* The Vessel */}
       <RevealSection className="section-carbon section-padding">
@@ -124,7 +183,33 @@ export default function BuildPage() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="light" bottomTheme="carbon" flip />
+      <SectionDivider topTheme="light" bottomTheme="void" flip />
+
+      {/* Nature's Original Composite */}
+      <RevealSection className="section-dark section-padding">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+            <div className="md:col-span-5">
+              <p className="reveal text-label text-signal mb-4">Materials Focus</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white">
+                Nature&apos;s Original Composite
+              </h2>
+            </div>
+            <div className="md:col-span-7">
+              <div className="reveal reveal-delay-2 space-y-6">
+                <p className="text-base text-steel leading-relaxed">
+                  Most sustainable builds focus purely on bio-resins and flax fibers. We are integrating a timber renaissance. Wood is nature&apos;s original composite: cellulose fibers in a lignin matrix.
+                </p>
+                <p className="text-base text-steel leading-relaxed">
+                  It acts as a natural carbon sink — one cubic meter of wood stores over one tonne of CO₂. When combined with CNC-enabled manufacturing and precision structural engineering, timber construction produces competitive performance that traditional hand-laid composites struggle to match sustainably. This is our differentiator in the SuMoth Challenge.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* Full Timeline */}
       <RevealSection className="section-carbon section-padding">

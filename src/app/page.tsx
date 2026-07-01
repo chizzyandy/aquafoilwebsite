@@ -6,7 +6,6 @@ import StatCounter from '@/components/StatCounter';
 import RoadmapTimeline from '@/components/RoadmapTimeline';
 import SectionDivider from '@/components/SectionDivider';
 
-import { disciplines } from '@/data/team';
 import { partnershipValues } from '@/data/partners';
 
 export default function Home() {
@@ -66,36 +65,41 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          02 — WHAT IS AQUAFOIL + WHY IT MATTERS
+          02 — THE PROBLEM
       ═══════════════════════════════════════════ */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5">
               <div className="reveal">
-                <p className="text-label text-signal mb-4">01 — What is aQuaFoil</p>
+                <p className="text-label text-signal mb-4">01 — The Problem</p>
                 <h2 className="text-section text-white">
-                  Compete today. Sustain tomorrow.
+                  The boats outlast us.
                 </h2>
               </div>
             </div>
             <div className="md:col-span-7 md:pt-4">
               <div className="reveal reveal-delay-1">
-                <p className="text-lg text-steel leading-relaxed mb-6">
-                  aQuaFoil is Queen&apos;s University&apos;s newest sustainable design team. We are building a foiling Moth for the 2027 edition of the SuMoth Challenge.
-                </p>
+                <ul className="text-lg text-steel leading-relaxed mb-6 space-y-2 list-disc pl-5">
+                  <li><strong className="text-white">200,000</strong> boats reach end-of-life annually in the U.S.¹</li>
+                  <li><strong className="text-white">100,000+</strong> fiberglass boats reach end-of-life in the EU per year; only ~2,000 recycled²</li>
+                  <li>Carbon fiber composites carry <strong className="text-white">2–5x</strong> the carbon footprint previously estimated³</li>
+                  <li>Fiberglass does not biodegrade — these boats sit in landfills for centuries</li>
+                </ul>
                 <p className="text-base text-steel/80 leading-relaxed mb-6">
-                  The marine industry is under pressure to demonstrate sustainability credentials. At the same time, performance standards continue to rise. aQuaFoil aims to solve both — in a competitive context that makes neither optional.
+                  The marine composites industry produces boats that will sit in landfills for centuries. There is currently no scalable recycling pathway for fiberglass.
                 </p>
                 <p className="text-base text-steel/70 leading-relaxed">
-                  A foiling Moth rewards precision engineering and innovative design. That balance makes it a perfect platform for learning, building, and racing.
+                  We are building a foiling Moth for the 2027 edition of the SuMoth Challenge to prove that sustainable design and elite engineering performance are the same challenge.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Stats */}
-          <div className="reveal reveal-delay-2 mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 py-12 border-t border-b border-slate/30">
+          <div className="reveal reveal-delay-2 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 py-12 border-t border-b border-slate/30">
+            <StatCounter value={60} suffix="%+" label="CO₂ Reduction" />
+            <StatCounter value={200} suffix=",000" label="Boats end-of-life/yr" />
             <StatCounter value={20} suffix="+" label="Team Members" />
             <div className="text-center">
               <div className="text-data text-4xl md:text-5xl text-white mb-2">2027</div>
@@ -105,7 +109,63 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="void" bottomTheme="light" />
+      <SectionDivider topTheme="void" bottomTheme="carbon" />
+
+      {/* ═══════════════════════════════════════════
+          03 — A NEW WAVE OF MATERIALS
+      ═══════════════════════════════════════════ */}
+      <RevealSection className="section-carbon section-padding">
+        <div className="container-editorial">
+          <div className="text-center mb-16">
+            <p className="reveal text-label text-signal mb-4">02 — The Alternative</p>
+            <h2 className="reveal reveal-delay-1 text-section text-white">
+              A New Wave of Materials
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Natural Fiber Composites */}
+            <div className="reveal reveal-delay-2 card-light p-8">
+              <h3 className="font-display text-2xl font-medium text-void mb-4">Natural Fiber Composites</h3>
+              <ul className="text-sm text-void/70 space-y-4 list-none">
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>Flax fibers:</strong> comparable specific strength to glass, superior vibration damping⁵</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>60%+ carbon footprint reduction</strong> with flax/bio-epoxy hulls⁶</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>Bcomp ampliTex:</strong> 85% lower CO₂ than equivalent carbon fiber⁷</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Timber Renaissance */}
+            <div className="reveal reveal-delay-3 card-light p-8">
+              <h3 className="font-display text-2xl font-medium text-void mb-4">Nature&apos;s Original Composite</h3>
+              <ul className="text-sm text-void/70 space-y-4 list-none">
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>Wood as a composite:</strong> cellulose fibers in a lignin matrix</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>Natural carbon sink:</strong> 1 m³ stores 1+ tonne CO₂¹⁸ ¹⁹</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-signal-deep shrink-0 mt-0.5">•</span>
+                  <span><strong>Precision manufacturing:</strong> CNC-enabled wood construction produces competitive foiling performance²⁰</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <SectionDivider topTheme="carbon" bottomTheme="light" />
 
       {/* ═══════════════════════════════════════════
           04 — WHAT WE'RE BUILDING
@@ -228,12 +288,15 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="reveal text-center">
+          <div className="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/partners" className="btn-primary">
               Explore partnership
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
+            </Link>
+            <Link href="/join" className="px-6 py-3 border border-void/20 hover:border-signal-deep hover:text-signal-deep text-void text-sm font-medium transition-colors">
+              Apply to join the team
             </Link>
           </div>
         </div>

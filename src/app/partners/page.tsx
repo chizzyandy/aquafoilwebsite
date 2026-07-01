@@ -54,7 +54,61 @@ export default function PartnersPage() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="carbon" bottomTheme="light" />
+      <SectionDivider topTheme="carbon" bottomTheme="void" flip />
+
+      {/* The Proof */}
+      <RevealSection className="section-dark section-padding">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+            <div className="md:col-span-5">
+              <p className="reveal text-label text-signal mb-4">The Proof</p>
+              <h2 className="reveal reveal-delay-1 text-section text-white">
+                Our Standard vs. The Industry
+              </h2>
+              <p className="reveal reveal-delay-2 text-base text-steel leading-relaxed mt-4">
+                Canada&apos;s marine economy generates $51 billion in annual GDP and supports nearly 446,000 jobs. We are building the engineering pipeline for a sustainable future in this vital sector.
+              </p>
+            </div>
+            <div className="md:col-span-7">
+              <div className="reveal reveal-delay-3 overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/20">
+                      <th className="py-3 px-4 text-sm font-medium text-white">Metric</th>
+                      <th className="py-3 px-4 text-sm font-medium text-steel">Traditional Build</th>
+                      <th className="py-3 px-4 text-sm font-medium text-signal">Sustainable Build</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm">
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Primary Hull Material</td>
+                      <td className="py-3 px-4 text-steel">Fiberglass / Carbon Fiber</td>
+                      <td className="py-3 px-4 text-signal">Flax Fiber / Timber</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Resin System</td>
+                      <td className="py-3 px-4 text-steel">Synthetic Epoxy</td>
+                      <td className="py-3 px-4 text-signal">Bio-based Epoxy</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">Carbon Footprint</td>
+                      <td className="py-3 px-4 text-steel">Baseline</td>
+                      <td className="py-3 px-4 text-signal">60%+ Reduction</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="py-3 px-4 text-white">End of Life</td>
+                      <td className="py-3 px-4 text-steel">Landfill</td>
+                      <td className="py-3 px-4 text-signal">Recyclable / Biodegradable</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <SectionDivider topTheme="void" bottomTheme="light" />
 
       {/* Project Stats */}
       <RevealSection className="section-light section-padding">
@@ -130,7 +184,7 @@ export default function PartnersPage() {
                 <div className="w-full h-24 md:h-28 flex items-center justify-center mb-4">
                   {partner.logo ? (
                     <a href={partner.url} target="_blank" rel="noopener noreferrer">
-                      <img src={partner.logo} alt={`${partner.name} logo`} className="w-320 h-112 object-contain" />
+                      <Image src={partner.logo} alt={`${partner.name} logo`} width={320} height={112} className="w-320 h-112 object-contain" />
                     </a>
                   ) : (
                     <span className="font-display text-lg font-medium text-white">{partner.name}</span>
@@ -150,7 +204,7 @@ export default function PartnersPage() {
                   <div className="w-full h-20 flex items-center justify-center mb-4">
                     {partner.logo ? (
                       <a href={partner.url} target="_blank" rel="noopener noreferrer">
-                        <img src={partner.logo} alt={`${partner.name} logo`} className="h-12 object-contain" />
+                        <Image src={partner.logo} alt={`${partner.name} logo`} width={160} height={48} className="h-12 w-auto object-contain" />
                       </a>
                     ) : (
                       <span className="font-display text-lg font-medium text-white">{partner.name}</span>

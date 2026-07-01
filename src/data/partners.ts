@@ -43,4 +43,12 @@ export const partnershipValues = [
     title: "First-Mover Advantage",
     description: "We are confirming 2026–2027 partners now. Early partners receive primary placement and the deepest association with the programme across an 18-month build cycle to Lake Garda.",
   },
+  {
+    title: "ESG & Sustainability Alignment",
+    description: "Every material choice is assessed through MarineShift360 lifecycle analysis. Your sponsorship is tied to measurable, documented environmental impact — not aspirational language.",
+  },
+  {
+    title: "International Competition Visibility",
+    description: "Your brand travels to Lake Garda, Italy alongside teams from 7+ nations during Foiling Week — covered by sailing and engineering media worldwide.",
+  },
 ];

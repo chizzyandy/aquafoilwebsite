@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import SectionDivider from '@/components/SectionDivider';
 import ContactBlock from '@/components/ContactBlock';
