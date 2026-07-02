@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const MODEL_SRC = '/models/aquafoil-vessel.glb';
+const MODEL_SRC = '/models/Test_aQuaFoil_Boat.glb';
 
 export default function VesselModelViewer() {
   const [viewerState, setViewerState] = useState<'loading' | 'ready' | 'error'>('loading');
@@ -35,7 +35,7 @@ export default function VesselModelViewer() {
         {viewerState === 'ready' ? (
           <model-viewer
             src={MODEL_SRC}
-            alt="Interactive 3D concept model of the aQuaFoil foiling Moth vessel"
+            alt="Interactive 3D model of the aQuaFoil foiling Moth vessel"
             camera-controls
             auto-rotate
             auto-rotate-delay="1400"
@@ -68,7 +68,7 @@ export default function VesselModelViewer() {
         )}
       </div>
       <figcaption className="mt-3 text-xs text-mid font-mono">
-        Concept 3D model of the aQuaFoil foiling Moth, showing the hull, rig, and hydrofoil layout.
+        Interactive 3D model of the aQuaFoil foiling Moth vessel prototype.
       </figcaption>
     </figure>
   );
