@@ -4,6 +4,7 @@ import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import RoadmapTimeline from '@/components/RoadmapTimeline';
 import SectionDivider from '@/components/SectionDivider';
+import VesselModelViewer from '@/components/VesselModelViewer';
 
 export default function BuildPage() {
   return (
@@ -118,18 +119,7 @@ export default function BuildPage() {
               </div>
             </div>
 
-            {/* Image Placeholder */}
-            <div className="reveal reveal-delay-1">
-              <div className="aspect-[3/4] bg-slate/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-label text-mid mb-2">Image placeholder</p>
-                    <p className="text-sm text-mid">Foiling Moth reference photo</p>
-                  </div>
-                </div>
-              </div>
-              <p className="mt-3 text-xs text-mid font-mono">A foiling Moth at full flight. Hull airborne, hydrofoils supporting full vessel weight.</p>
-            </div>
+            <VesselModelViewer />
           </div>
         </div>
       </RevealSection>
