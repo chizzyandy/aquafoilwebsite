@@ -42,51 +42,7 @@ export default function JoinPage() {
         </div>
       </section>
 
-      <SectionDivider topTheme="void" bottomTheme="carbon" />
-
-      {/* What You Get */}
-      <RevealSection className="section-carbon section-padding">
-        <div className="container-full">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">Why Join</p>
-              <h3 className="reveal reveal-delay-1 text-section text-white">
-                Hands on Engineering Challenge
-              </h3>
-            </div>
-            <div className="md:col-span-7">
-              <p className="reveal reveal-delay-2 text-lg text-steel leading-relaxed">
-                aQuaFoil operates like a high-performance design team. Real deliverables, real accountability, while keeping the work fun.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Fabrication',
-                desc: 'Composite layup, tooling, CNC machining. Work with materials and processes that you won\'t always get to use in class.',
-              },
-              {
-                title: 'Computational Analysis',
-                desc: 'CFD, FEA, material simulation. Using software like OpenFOAM, ANSYS, SolidWorks, Python. Build analysis skills using a real problems.',
-              },
-              {
-                title: 'Build a Brand That Speaks',
-                desc: 'Documented projects, tested components, a brand that looks serious. Work that demonstrates professional-grade competence.',
-              }
-            ].map((benefit, i) => (
-              <div key={benefit.title} className={`reveal reveal-delay-${i + 1} card-dark p-8`}>
-                <div className="signal-line mb-6" />
-                <h3 className="font-display text-lg font-medium text-white mb-3">{benefit.title}</h3>
-                <p className="text-sm text-steel/80 leading-relaxed">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="carbon" bottomTheme="light" />
+      <SectionDivider topTheme="void" bottomTheme="light" />
 
       {/* Roles */}
       <RevealSection className="section-light section-padding">

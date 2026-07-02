@@ -33,7 +33,7 @@ export const partners: Partner[] = [
 export const partnershipValues = [
   {
     title: "Proof, Not Claims",
-    description: "Every decision — materials, geometry, fabrication — is validated by CFD, FEA, and lifecycle assessment. Your brand is tied to documented engineering outcomes, not marketing language.",
+    description: "Every decision validated by CFD, FEA, and lifecycle assessment. Your brand ties to documented outcomes, not marketing copy.",
   },
   {
     title: "Talent Before the Market",
@@ -45,7 +45,7 @@ export const partnershipValues = [
   },
   {
     title: "ESG & Sustainability Alignment",
-    description: "Every material choice is assessed through MarineShift360 lifecycle analysis. Your sponsorship is tied to measurable, documented environmental impact — not aspirational language.",
+    description: "Materials assessed through MarineShift360 lifecycle analysis. Measurable environmental impact, not aspirational language.",
   },
   {
     title: "International Competition Visibility",

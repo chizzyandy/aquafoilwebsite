@@ -244,38 +244,6 @@ export default function BuildPage() {
 
       <SectionDivider topTheme="carbon" bottomTheme="void" />
 
-      {/* Design Process */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">Design Process</p>
-              <h2 className="reveal reveal-delay-1 text-subsection text-white">
-                Every decision measured
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <div className="reveal reveal-delay-2 space-y-6">
-                <p className="text-base text-steel leading-relaxed">
-                  Our design process integrates computational fluid dynamics (CFD), finite element analysis (FEA), and material lifecycle assessment at every stage. OpenFOAM provides our hydrodynamic simulation backbone. Ansys is used for structural analysis. Everything is planned and tested before implementation.
-                </p>
-                <p className="text-base text-steel/80 leading-relaxed">
-                  Material decisions are not decorative — each candidate undergoes mechanical testing, lifecycle assessment, and performance benchmarking against conventional alternatives. The trade-off data is public. The reasoning is documented.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Tool badges */}
-          <div className="reveal reveal-delay-3 mt-16 flex flex-wrap gap-3">
-            {['OpenFOAM', 'SolidWorks', 'ANSYS', 'Python', 'Bio-Epoxy Systems', 'Natural Fibre Composites'].map((tool) => (
-              <span key={tool} className="font-mono text-xs text-steel px-4 py-2 border border-slate/30">
-                {tool}
-              </span>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
 
 
     </>

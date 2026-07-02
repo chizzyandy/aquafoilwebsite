@@ -41,11 +41,10 @@ export default function SectionDivider({
 
   return (
     <div
-      className={`section-divider ${className}`}
+      className={`section-divider ${flip ? 'section-divider-flip' : ''} ${className}`}
       aria-hidden="true"
       style={{
         background: bottomColor,
-        transform: flip ? 'scaleX(-1)' : undefined,
       }}
     >
       <svg
@@ -56,18 +55,21 @@ export default function SectionDivider({
       >
         {/* Layer 1: deepest, most subtle wave */}
         <path
+          className="section-divider-wave section-divider-wave-deep"
           d="M0,0 L0,70 C240,30 480,100 720,70 C960,40 1200,90 1440,60 L1440,0 Z"
           fill={topColor}
           opacity="0.4"
         />
         {/* Layer 2: mid-depth wave */}
         <path
+          className="section-divider-wave section-divider-wave-mid"
           d="M0,0 L0,50 C320,80 560,20 800,45 C1040,70 1280,25 1440,40 L1440,0 Z"
           fill={topColor}
           opacity="0.7"
         />
         {/* Layer 3: sharpest, primary wave edge */}
         <path
+          className="section-divider-wave section-divider-wave-edge"
           d="M0,0 L0,30 C180,55 420,15 720,35 C1020,55 1260,20 1440,25 L1440,0 Z"
           fill={topColor}
         />

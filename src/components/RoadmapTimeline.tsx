@@ -32,23 +32,40 @@ export interface RoadmapTimelineProps {
 
 export default function RoadmapTimeline({ limitActive, linkLearnMoreToBuild }: RoadmapTimelineProps = {}) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  const [progressPct, setProgressPct] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   /* ── scroll → progress fill ── */
   useEffect(() => {
-    const onScroll = () => {
+    let frame = 0;
+
+    const updateProgress = () => {
+      frame = 0;
       const track = trackRef.current;
       if (!track) return;
+
       const { top, height } = track.getBoundingClientRect();
       const viewH = window.innerHeight;
       const raw = (viewH - top) / (height + viewH);
-      setProgressPct(Math.min(100, Math.max(0, raw * 100)));
+      const progress = Math.min(1, Math.max(0, raw));
+
+      track.style.setProperty('--timeline-progress', progress.toFixed(4));
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(updateProgress);
+    };
+
+    requestUpdate();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+    };
   }, []);
 
   /* ── intersection → node reveal ── */
@@ -76,7 +93,7 @@ export default function RoadmapTimeline({ limitActive, linkLearnMoreToBuild }: R
 
         {/* Background rail */}
         <div className={s.rail} aria-hidden="true">
-          <div className={s.railFill} style={{ height: `${progressPct}%` }} />
+          <div className={s.railFill} />
         </div>
 
         {(() => {

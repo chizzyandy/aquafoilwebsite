@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
-import StatCounter from '@/components/StatCounter';
 import SectionDivider from '@/components/SectionDivider';
 import ContactBlock from '@/components/ContactBlock';
 import { partners, partnershipValues } from '@/data/partners';
@@ -15,10 +14,10 @@ export default function PartnershipPage() {
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">Partnership</p>
           <h1 className="text-hero text-white max-w-3xl">
-            Helping Students Learn Skills for a Lifetime
+            Partner with the build.
           </h1>
           <p className="text-xl text-steel max-w-2xl mt-8 leading-relaxed">
-            Your brand. A competition vessel. Real engineering students. Partnership with aQuaFoil puts you at the intersection of precision manufacturing, sustainable materials, and the next generation of technical talent.
+            Your brand on a competition vessel, built by the next generation of composite, CFD, and structural engineers — racing at Lake Garda, Italy.
           </p>
         </div>
       </section>
@@ -34,7 +33,7 @@ export default function PartnershipPage() {
               What partnership means
             </h2>
             <p className="reveal reveal-delay-2 text-lg text-steel max-w-2xl leading-relaxed">
-              Five reasons aQuaFoil is a different kind of partnership — not a donation, not a logo placement, but an 18-month association with a programme built around the same standards your industry is navigating.
+              Not a donation. Not a logo placement. An 18-month technical partnership built around the same standards your industry is navigating.
             </p>
           </div>
 
@@ -66,7 +65,7 @@ export default function PartnershipPage() {
                 Our Standard vs. The Industry
               </h2>
               <p className="reveal reveal-delay-2 text-base text-steel leading-relaxed mt-4">
-                Canada&apos;s marine economy generates $51 billion in annual GDP and supports nearly 446,000 jobs. We are building the engineering pipeline for a sustainable future in this vital sector.
+                Canada&apos;s marine economy: $51B GDP, 446,000 jobs. We&apos;re building the engineering pipeline for its sustainable future.
               </p>
             </div>
             <div className="md:col-span-7">
@@ -108,19 +107,6 @@ export default function PartnershipPage() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="void" bottomTheme="light" />
-
-      {/* Project Stats */}
-      <RevealSection className="section-light section-padding">
-        <div className="container-editorial">
-          <div className="reveal grid grid-cols-2 gap-8 md:gap-12 max-w-md py-12">
-            <StatCounter value={6} label="Team Members" theme="light" />
-            <StatCounter value={3} label="Project Advisors" theme="light" />
-          </div>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="light" bottomTheme="void" flip />
 
       {/* What Partners Get */}
       <RevealSection className="section-dark section-padding">

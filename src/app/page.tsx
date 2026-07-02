@@ -1,36 +1,95 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
 import SectionDivider from '@/components/SectionDivider';
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+
+    const setStaticHero = () => {
+      hero.style.setProperty('--hero-media-y', '0px');
+      hero.style.setProperty('--hero-media-scale', '1');
+      hero.style.setProperty('--hero-copy-y', '0px');
+      hero.style.setProperty('--hero-copy-opacity', '1');
+      hero.style.setProperty('--hero-overlay-top', '0.4');
+      hero.style.setProperty('--hero-overlay-mid', '0.6');
+      hero.style.setProperty('--hero-overlay-bottom', '0.95');
+    };
+
+    const updateHero = () => {
+      frame = 0;
+
+      if (reduceMotion.matches) {
+        setStaticHero();
+        return;
+      }
+
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height, 1)));
+
+      hero.style.setProperty('--hero-media-y', `${Math.round(progress * 72)}px`);
+      hero.style.setProperty('--hero-media-scale', (1 + progress * 0.08).toFixed(3));
+      hero.style.setProperty('--hero-copy-y', `${Math.round(progress * -48)}px`);
+      hero.style.setProperty('--hero-copy-opacity', (1 - progress * 0.62).toFixed(3));
+      hero.style.setProperty('--hero-overlay-top', (0.4 + progress * 0.18).toFixed(3));
+      hero.style.setProperty('--hero-overlay-mid', (0.6 + progress * 0.2).toFixed(3));
+      hero.style.setProperty('--hero-overlay-bottom', (0.95 + progress * 0.05).toFixed(3));
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(updateHero);
+    };
+
+    requestUpdate();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    reduceMotion.addEventListener('change', requestUpdate);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      reduceMotion.removeEventListener('change', requestUpdate);
+    };
+  }, []);
+
   return (
     <>
       {/* ═══════════════════════════════════════════
           01 — HERO
       ═══════════════════════════════════════════ */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section ref={heroRef} className="hero-scroll-scene relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/images/hero-poster.jpg"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/video/hero.mp4" type="video/mp4" />
-          </video>
-          {/* Fallback gradient if no video */}
-          <div className="absolute inset-0 bg-void" />
+          <div className="hero-media absolute inset-0 bg-void">
+            <div className="hero-media-fallback absolute inset-0" aria-hidden="true" />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/images/Moth_Sailing.webp"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/video/hero.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div className="hero-overlay absolute inset-0" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container-editorial text-center">
+        <div className="hero-content relative z-10 container-editorial text-center">
           <p className="text-label text-signal mb-6 tracking-widest">
             Queen&apos;s University · SuMoth Challenge 2027
           </p>
@@ -68,9 +127,17 @@ export default function Home() {
             <div className="md:col-span-5">
               <div className="reveal">
                 <p className="text-label text-signal mb-4">01 — The Mission</p>
-                <h2 className="text-section text-white">
-                  Sustainability is not a constraint.
+                <h2 className="text-section text-white hover:text-signal transition-colors mb-6">
+                  <Link href="/article">
+                    Sustainability is not a constraint.
+                  </Link>
                 </h2>
+                <Link href="/article" className="inline-flex items-center gap-2 text-sm font-medium text-signal hover:text-white transition-colors">
+                  Explore why it matters
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
               </div>
             </div>
             <div className="md:col-span-7 md:pt-4">

@@ -15,30 +15,7 @@ const RAISED = 10000; // Updated as donations come in
 
 const SUGGESTED_AMOUNTS = [25, 100, 500, 1000];
 
-// Where the money goes — derived from the 2026-2027 program budget
-// in the Mk. I deck, scaled to a $50K stretched goal.
-const ALLOCATIONS = [
-  {
-    label: 'Build & Systems',
-    pct: 47,
-    blurb: 'Hull mould, bio-composite layup, hardware, foils, rig.',
-  },
-  {
-    label: 'Competition & Travel',
-    pct: 30,
-    blurb: 'Boat shipping to Lake Garda, team logistics, entry fees.',
-  },
-  {
-    label: 'Design & Simulation',
-    pct: 8,
-    blurb: 'CFD compute, FEA licenses, engineering software.',
-  },
-  {
-    label: 'Contingency & Buffer',
-    pct: 15,
-    blurb: 'Reserve for redesign, breakage, or unexpected build costs.',
-  },
-];
+
 
 export default function DonatePage() {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
@@ -256,108 +233,6 @@ export default function DonatePage() {
                 </div>
               </form>
             )}
-          </div>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="light" bottomTheme="void" flip />
-
-      {/* ─── Where the Money Goes ─── */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">Allocation</p>
-              <h2 className="reveal reveal-delay-1 text-section text-white">
-                Where your gift goes
-              </h2>
-            </div>
-            <div className="md:col-span-7 md:pt-4">
-              <p className="reveal reveal-delay-2 text-base text-steel leading-relaxed">
-                Every dollar is allocated against a phase of the build. The breakdown below scales the 2026–2027 program budget to the $50,000 campaign goal, with a real contingency line for the things that always come up on a build of this scale.
-              </p>
-            </div>
-          </div>
-
-          <div className="reveal reveal-delay-3 space-y-5">
-            {ALLOCATIONS.map((a, i) => (
-              <div
-                key={a.label}
-                className={`grid grid-cols-12 gap-4 md:gap-6 items-center py-5 ${
-                  i > 0 ? 'border-t border-slate/30' : ''
-                }`}
-              >
-                <div className="col-span-12 md:col-span-4">
-                  <p className="font-display text-lg text-white mb-1">{a.label}</p>
-                  <p className="text-xs text-mid font-mono">
-                    ${Math.round((a.pct / 100) * GOAL).toLocaleString()} CAD
-                  </p>
-                </div>
-                <div className="col-span-8 md:col-span-6">
-                  <div className="relative w-full h-1 bg-slate/40">
-                    <div
-                      className="absolute top-0 left-0 h-full bg-signal"
-                      style={{ width: `${a.pct}%` }}
-                    />
-                  </div>
-                  <p className="text-sm text-steel/80 mt-3 leading-relaxed">{a.blurb}</p>
-                </div>
-                <div className="col-span-4 md:col-span-2 text-right">
-                  <span className="text-data text-2xl text-white">{a.pct}%</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="void" bottomTheme="light" />
-
-      {/* ─── FAQ ─── */}
-      <RevealSection className="section-light section-padding">
-        <div className="container-editorial">
-          <div className="max-w-3xl mx-auto">
-            <p className="reveal text-label text-signal-deep mb-4 text-center">FAQ</p>
-            <h2 className="reveal reveal-delay-1 text-subsection text-void mb-12 text-center">
-              Common questions
-            </h2>
-
-            <div className="space-y-8">
-              {[
-                {
-                  q: 'Is my donation tax-deductible?',
-                  a: 'Donations made through Queen\'s University may be eligible for a Canadian federal tax credit. After your gift is processed, the university issues an official tax receipt. Sponsorship contributions are treated as a business expense rather than a charitable donation and are not tax-credit eligible.',
-                },
-                {
-                  q: 'Where exactly does my money go?',
-                  a: 'Roughly half goes to the boat itself — bio-composite hull, foils, rig, hardware. About a third covers travel and competition logistics for Lake Garda. The remainder funds engineering software, simulation compute, and a contingency line so a single setback doesn\'t end the project.',
-                },
-                {
-                  q: 'Can I donate something other than money?',
-                  a: 'Yes. We welcome in-kind contributions of materials (composite reinforcements, bio-resins, core materials), fabrication time, machining, and technical mentorship. These work best when discussed directly — please email us.',
-                },
-                {
-                  q: 'What if you exceed the $50,000 goal?',
-                  a: 'Excess funds carry forward to the 2027–2029 program — knowledge transfer, recruiting the next cohort, and a refined second-generation boat. aQuaFoil is built to be a continuing program, not a one-shot.',
-                },
-                {
-                  q: 'Can I support a specific part of the boat?',
-                  a: 'Absolutely. Materials, foils, the rig, and competition travel can each be sponsored or donated to directly. Reach out and we\'ll set up a designated contribution.',
-                },
-              ].map((item, i) => (
-                <div
-                  key={item.q}
-                  className={`reveal reveal-delay-${Math.min(i + 1, 6)} pb-8 ${
-                    i < 4 ? 'border-b border-light-border' : ''
-                  }`}
-                >
-                  <h3 className="font-display text-lg font-medium text-void mb-3">
-                    {item.q}
-                  </h3>
-                  <p className="text-sm text-void/70 leading-relaxed">{item.a}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </RevealSection>
