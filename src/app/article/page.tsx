@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import SectionDivider from '@/components/SectionDivider';
 
@@ -139,6 +140,39 @@ export default function ArticlePage() {
               </div>
             </div>
           </div>
+
+          {/* Article Images — Materials */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            <figure className="reveal reveal-delay-4">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+                <Image
+                  src="/images/BCOMP_ECO360.jpg"
+                  alt="The ecoRacer30, the first fully recyclable nine-metre racing sailboat, built by Northern Light Composites using Bcomp flax fiber composites"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="mt-3 text-xs text-void/50 italic leading-relaxed">
+                The ecoRacer30 — the first fully recyclable nine-metre racing sailboat, built by Northern Light Composites using Bcomp&apos;s ampliTex flax composites.
+              </figcaption>
+            </figure>
+
+            <figure className="reveal reveal-delay-5">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+                <Image
+                  src="/images/WOY26.png"
+                  alt="Aerial view of the Woy 26, a high-performance sustainable daysailer built with vacuum-infused timber and bio-resin construction"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="mt-3 text-xs text-void/50 italic leading-relaxed">
+                The Woy 26 — a high-performance daysailer built with vacuum-infused timber and bio-resin. Nominated for European Yacht of the Year 2026.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </RevealSection>
 
@@ -147,6 +181,23 @@ export default function ArticlePage() {
       {/* The SuMoth Challenge */}
       <RevealSection className="section-dark section-padding">
         <div className="container-editorial">
+          {/* Moth Hero Image */}
+          <figure className="reveal mb-16">
+            <div className="relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: '21 / 9' }}>
+              <Image
+                src="/images/Moth_Sailing.webp"
+                alt="A foiling Moth sailboat flying above the water on hydrofoils during competitive racing"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 text-xs text-steel/60 italic leading-relaxed">
+              A foiling Moth lifts its hull completely out of the water using hydrofoils — eliminating drag and reaching speeds up to 75 km/h.
+            </figcaption>
+          </figure>
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5">
               <p className="reveal text-label text-signal mb-4">The Competition</p>
@@ -319,7 +370,7 @@ export default function ArticlePage() {
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row items-start gap-4">
-            <Link href="/partners" className="btn-primary">
+            <Link href="/partnership" className="btn-primary">
               Explore partnership
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

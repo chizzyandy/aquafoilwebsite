@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
 import RoadmapTimeline from '@/components/RoadmapTimeline';
 import SectionDivider from '@/components/SectionDivider';
@@ -206,6 +207,22 @@ export default function BuildPage() {
               </div>
             </div>
           </div>
+
+          {/* Birch Bark Canoe */}
+          <figure className="reveal reveal-delay-3 mt-16">
+            <div className="relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: '16 / 9' }}>
+              <Image
+                src="/images/Birchbark_Canoe.jpg"
+                alt="A traditional birch bark canoe showing natural wood ribs and bark hull — one of the earliest examples of wood composite watercraft construction"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1100px"
+              />
+            </div>
+            <figcaption className="mt-3 text-xs text-steel/60 italic leading-relaxed">
+              A birch bark canoe — wood ribs within a bark hull. Nature&apos;s composite logic, applied to watercraft for thousands of years.
+            </figcaption>
+          </figure>
         </div>
       </RevealSection>
 

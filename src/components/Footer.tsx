@@ -38,9 +38,9 @@ export default function Footer() {
           <div className="md:col-span-2">
             <p className="text-label text-steel mb-4">Navigate</p>
             <div className="flex flex-col gap-3">
-              <Link href="/about" className="text-sm text-white/70 hover:text-white transition-colors">About</Link>
+              <Link href="/team" className="text-sm text-white/70 hover:text-white transition-colors">Team</Link>
               <Link href="/build" className="text-sm text-white/70 hover:text-white transition-colors">The Build</Link>
-              <Link href="/partners" className="text-sm text-white/70 hover:text-white transition-colors">Partners</Link>
+              <Link href="/partnership" className="text-sm text-white/70 hover:text-white transition-colors">Partnership</Link>
 
               <Link href="/join" className="text-sm text-white/70 hover:text-white transition-colors">Join</Link>
             </div>

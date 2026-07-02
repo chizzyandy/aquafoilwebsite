@@ -6,9 +6,8 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Why It Matters', href: '/article' },
   { label: 'The Build', href: '/build' },
-  { label: 'About', href: '/about' },
-  { label: 'Updates', href: '/updates' },
-  { label: 'Partners', href: '/partners' },
+  { label: 'Team', href: '/team' },
+  { label: 'Partnership', href: '/partnership' },
   { label: 'Donate', href: '/donate' },
   { label: 'Join', href: '/join' },
 ];
@@ -56,7 +55,7 @@ export default function Nav() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/partners#contact" className="btn-primary text-sm !py-2.5 !px-6">
+            <Link href="/partnership#contact" className="btn-primary text-sm !py-2.5 !px-6">
               Partner with us
             </Link>
           </div>
@@ -94,7 +93,7 @@ export default function Nav() {
           ))}
           <div className="mt-8 pt-8 border-t border-slate/30 w-full">
             <Link
-              href="/partners#contact"
+              href="/partnership#contact"
               onClick={() => setMobileOpen(false)}
               className="btn-primary"
             >

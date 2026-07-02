@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "aQuaFoil — Sustainable Performance, Built to Race",
+  title: "aQuaFoil",
   description:
     "aQuaFoil is Queen's University's sustainable high-performance engineering design team, building a foiling Moth for the SuMoth Challenge 2027.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "sailing",
   ],
   openGraph: {
-    title: "aQuaFoil — Sustainable Performance, Built to Race",
+    title: "aQuaFoil",
     description:
       "Queen's University engineering design team building a sustainable high-performance foiling Moth for the SuMoth Challenge 2027.",
     type: "website",

@@ -7,7 +7,7 @@ import SectionDivider from '@/components/SectionDivider';
 import ContactBlock from '@/components/ContactBlock';
 import { partners, partnershipValues } from '@/data/partners';
 
-export default function PartnersPage() {
+export default function PartnershipPage() {
   return (
     <>
       {/* Hero */}
@@ -113,10 +113,9 @@ export default function PartnersPage() {
       {/* Project Stats */}
       <RevealSection className="section-light section-padding">
         <div className="container-editorial">
-          <div className="reveal grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 py-12">
-            <StatCounter value={20} suffix="+" label="Team Members" theme="light" />
-            <StatCounter value={5} label="Sub-Teams" theme="light" />
-            <StatCounter value={2} label="Industry Advisors" theme="light" />
+          <div className="reveal grid grid-cols-2 gap-8 md:gap-12 max-w-md py-12">
+            <StatCounter value={6} label="Team Members" theme="light" />
+            <StatCounter value={3} label="Project Advisors" theme="light" />
           </div>
         </div>
       </RevealSection>
