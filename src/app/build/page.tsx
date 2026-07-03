@@ -1,10 +1,26 @@
 'use client';
 
-import Image from 'next/image';
 import RevealSection from '@/components/RevealSection';
-import RoadmapTimeline from '@/components/RoadmapTimeline';
 import SectionDivider from '@/components/SectionDivider';
 import VesselModelViewer from '@/components/VesselModelViewer';
+
+const roadmapSteps = [
+  {
+    phase: 'Design',
+    period: '2026',
+    desc: 'Freeze hull, foil, and system geometry through CFD, CAD, and structural review.',
+  },
+  {
+    phase: 'Build',
+    period: 'Winter 2027',
+    desc: 'Manufacture the hull, foils, wing systems, and controls from approved sustainable materials.',
+  },
+  {
+    phase: 'Race',
+    period: 'Summer 2027',
+    desc: 'Validate on water, submit SuMoth documentation, and compete at Lake Garda.',
+  },
+];
 
 export default function BuildPage() {
   return (
@@ -22,64 +38,6 @@ export default function BuildPage() {
         </div>
       </section>
 
-      {/* The Problem We're Solving */}
-      <RevealSection className="section-dark pb-24 md:pb-32">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 border-t border-white/10 pt-12">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">The Context</p>
-              <h2 className="reveal reveal-delay-1 text-section text-white">
-                The Problem We&apos;re Solving
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <div className="reveal reveal-delay-2 space-y-6">
-                <p className="text-base text-steel leading-relaxed">
-                  Every engineering decision we make is framed by the environmental reality of our industry. Annually, 200,000 boats reach end-of-life in the U.S. with no scalable recycling pathway for fiberglass. In the EU, over 100,000 fiberglass boats reach end-of-life per year, but only ~2,000 are recycled.
-                </p>
-                <p className="text-base text-steel leading-relaxed">
-                  Furthermore, carbon fiber composites carry a carbon footprint 2–5x higher than previously estimated. The materials that make foiling possible are the same materials filling our landfills. We are building the alternative.
-                </p>
-              </div>
-              
-              <div className="reveal reveal-delay-3 mt-10 overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-white/20">
-                      <th className="py-3 px-4 text-sm font-medium text-white">Metric</th>
-                      <th className="py-3 px-4 text-sm font-medium text-steel">Traditional Build</th>
-                      <th className="py-3 px-4 text-sm font-medium text-signal">Sustainable Build</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-sm">
-                    <tr className="border-b border-white/10">
-                      <td className="py-3 px-4 text-white">Primary Hull Material</td>
-                      <td className="py-3 px-4 text-steel">Fiberglass / Carbon Fiber</td>
-                      <td className="py-3 px-4 text-signal">Flax Fiber / Timber</td>
-                    </tr>
-                    <tr className="border-b border-white/10">
-                      <td className="py-3 px-4 text-white">Resin System</td>
-                      <td className="py-3 px-4 text-steel">Synthetic Epoxy</td>
-                      <td className="py-3 px-4 text-signal">Bio-based Epoxy</td>
-                    </tr>
-                    <tr className="border-b border-white/10">
-                      <td className="py-3 px-4 text-white">Carbon Footprint</td>
-                      <td className="py-3 px-4 text-steel">Baseline</td>
-                      <td className="py-3 px-4 text-signal">60%+ Reduction</td>
-                    </tr>
-                    <tr className="border-b border-white/10">
-                      <td className="py-3 px-4 text-white">End of Life</td>
-                      <td className="py-3 px-4 text-steel">Landfill</td>
-                      <td className="py-3 px-4 text-signal">Recyclable / Biodegradable</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </RevealSection>
-
       <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* The Vessel */}
@@ -96,7 +54,16 @@ export default function BuildPage() {
                   The International Moth is a single-handed sailing dinghy that flies above the water on hydrofoils. At full flight, only the foils and rudder touch the water — the hull is airborne.
                 </p>
                 <p className="text-base text-steel leading-relaxed">
-                  The SuMoth Challenge adds a critical constraint: every material decision, structural choice, and fabrication method must meet measurable sustainability standards. That constraint does not reduce the engineering — it amplifies it.
+                  The{' '}
+                  <a
+                    href="https://sumoth.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-signal hover:text-white transition-colors"
+                  >
+                    SuMoth Challenge
+                  </a>{' '}
+                  adds a critical constraint: every material decision, structural choice, and fabrication method must meet measurable sustainability standards. That constraint does not reduce the engineering — it amplifies it.
                 </p>
               </div>
 
@@ -161,7 +128,7 @@ export default function BuildPage() {
               {
                 num: '05',
                 title: 'Materials',
-                desc: 'Full lifecycle assessment on every material. Bio-based resins, natural fibre reinforcements, recycled core materials. Every choice measured.',
+                desc: 'Bio-based resins, flax reinforcements, timber structure, and recycled cores selected through lifecycle and structural review.',
               },
             ].map((system) => (
               <div key={system.num} className="card-light p-8">
@@ -174,61 +141,44 @@ export default function BuildPage() {
         </div>
       </RevealSection>
 
-      <SectionDivider topTheme="light" bottomTheme="void" flip />
+      <SectionDivider topTheme="light" bottomTheme="carbon" flip />
 
-      {/* Nature's Original Composite */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">Materials Focus</p>
-              <h2 className="reveal reveal-delay-1 text-section text-white">
-                Nature&apos;s Original Composite
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <div className="reveal reveal-delay-2 space-y-6">
-                <p className="text-base text-steel leading-relaxed">
-                  Most sustainable builds focus purely on bio-resins and flax fibers. We are integrating a timber renaissance. Wood is nature&apos;s original composite: cellulose fibers in a lignin matrix.
-                </p>
-                <p className="text-base text-steel leading-relaxed">
-                  It acts as a natural carbon sink — one cubic meter of wood stores over one tonne of CO₂. When combined with CNC-enabled manufacturing and precision structural engineering, timber construction produces competitive performance that traditional hand-laid composites struggle to match sustainably. This is our differentiator in the SuMoth Challenge.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Birch Bark Canoe */}
-          <figure className="reveal reveal-delay-3 mt-16">
-            <div className="relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: '16 / 9' }}>
-              <Image
-                src="/images/Birchbark_Canoe.jpg"
-                alt="A traditional birch bark canoe showing natural wood ribs and bark hull — one of the earliest examples of wood composite watercraft construction"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1100px"
-              />
-            </div>
-            <figcaption className="mt-3 text-xs text-steel/60 italic leading-relaxed">
-              A birch bark canoe — wood ribs within a bark hull. Nature&apos;s composite logic, applied to watercraft for thousands of years.
-            </figcaption>
-          </figure>
-        </div>
-      </RevealSection>
-
-      <SectionDivider topTheme="void" bottomTheme="carbon" />
-
-      {/* Full Timeline */}
+      {/* Compact Timeline */}
       <RevealSection className="section-carbon section-padding">
         <div className="container-editorial">
           <div className="text-center mb-16">
             <p className="reveal text-label text-signal mb-4">Project Timeline</p>
             <h2 className="reveal reveal-delay-1 text-section text-white">
-              Full roadmap
+              Three phases to the start line
             </h2>
           </div>
 
-          <RoadmapTimeline />
+          <div className="reveal reveal-delay-2 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {roadmapSteps.map((step, i) => (
+              <div key={step.phase} className="card-dark p-8">
+                <span className="text-label text-signal">0{i + 1}</span>
+                <h3 className="font-display text-xl font-medium text-white mt-4 mb-2">
+                  {step.phase}
+                </h3>
+                <p className="text-sm text-signal mb-4">{step.period}</p>
+                <p className="text-sm text-steel/80 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal reveal-delay-3 mt-12 text-center">
+            <a
+              href="/Gantt.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-steel hover:text-signal transition-colors duration-200"
+            >
+              Full project timeline (PDF)
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
         </div>
       </RevealSection>
 

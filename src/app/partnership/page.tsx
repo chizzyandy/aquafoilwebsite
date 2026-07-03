@@ -33,7 +33,7 @@ export default function PartnershipPage() {
               What partnership means
             </h2>
             <p className="reveal reveal-delay-2 text-lg text-steel max-w-2xl leading-relaxed">
-              Not a donation. Not a logo placement. An 18-month technical partnership built around the same standards your industry is navigating.
+              An 18-month technical partnership built around sustainable materials, student talent, and a race-ready result.
             </p>
           </div>
 
@@ -122,24 +122,16 @@ export default function PartnershipPage() {
               <div className="reveal reveal-delay-2 space-y-6">
                 {[
                   {
-                    title: 'Logo Placement',
-                    desc: 'On the vessel hull, team apparel, website, and all competition media at Lake Garda. Size and placement scale with partnership tier.',
+                    title: 'Brand Placement',
+                    desc: 'Visibility on the vessel, apparel, website, and selected competition media, scaled to the partnership tier.',
                   },
                   {
                     title: 'Build Content',
-                    desc: 'Professional photography and video across the full 18-month build cycle — fabrication, testing, sea trials, and race day. Delivered for your own use.',
+                    desc: 'Photography, video, and progress updates from design reviews, fabrication, testing, and race preparation.',
                   },
                   {
-                    title: 'Talent Touchpoints',
-                    desc: 'Technical info session with the team, lab visit and design review, access to a resume bank, and a structured internship pipeline into CFD, composites, manufacturing, and structural engineering roles.',
-                  },
-                  {
-                    title: 'Technical Collaboration',
-                    desc: 'For materials and technology partners: your products used in a real build, with performance data, lifecycle assessment results, and a published engineering case study.',
-                  },
-                  {
-                    title: 'Competition Representation',
-                    desc: 'Your brand present at the SuMoth Challenge 2027 in Lake Garda, Italy — alongside 15 teams from 7 nations — and at all university showcases leading up to it.',
+                    title: 'Engineering Access',
+                    desc: 'Design reviews, team introductions, and collaboration opportunities for materials, manufacturing, and technical partners.',
                   },
                 ].map((benefit, i) => (
                   <div key={benefit.title} className={`py-6 ${i > 0 ? 'border-t border-slate/30' : ''}`}>

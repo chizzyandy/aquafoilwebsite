@@ -91,7 +91,15 @@ export default function Home() {
         {/* Content */}
         <div className="hero-content relative z-10 container-editorial text-center">
           <p className="text-label text-signal mb-6 tracking-widest">
-            Queen&apos;s University · SuMoth Challenge 2027
+            Queen&apos;s University ·{' '}
+            <a
+              href="https://sumoth.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors underline decoration-signal/40 underline-offset-4"
+            >
+              SuMoth Challenge 2027
+            </a>
           </p>
           <h1 className="text-hero text-white mb-8 max-w-4xl mx-auto">
             Sustainable performance,<br />built to race
@@ -133,7 +141,7 @@ export default function Home() {
                   </Link>
                 </h2>
                 <Link href="/article" className="inline-flex items-center gap-2 text-sm font-medium text-signal hover:text-white transition-colors">
-                  Explore why it matters
+                  Read why it matters
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -142,11 +150,8 @@ export default function Home() {
             </div>
             <div className="md:col-span-7 md:pt-4">
               <div className="reveal reveal-delay-1">
-                <p className="text-lg text-steel leading-relaxed mb-6">
-                  aQuaFoil is a student engineering design team at Queen&apos;s University. We are designing and building a foiling Moth sailboat from bio-composites and timber to compete in the international SuMoth Challenge.
-                </p>
-                <p className="text-base text-steel/80 leading-relaxed">
-                  Our goal is to prove that high-performance marine design and environmental responsibility are not mutually exclusive. Every design decision, material selection, and fabrication method we implement is assessed for structural efficiency and lifecycle environmental impact.
+                <p className="text-lg text-steel leading-relaxed">
+                  aQuaFoil is a Queen&apos;s University engineering design team building a sustainable foiling Moth for the 2027 SuMoth Challenge. We combine bio-composites, timber, CFD, and structural analysis into one race-ready vessel.
                 </p>
               </div>
             </div>
@@ -155,7 +160,7 @@ export default function Home() {
           {/* Stats */}
           <div className="reveal reveal-delay-2 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 py-12 border-t border-b border-white/10 text-center">
             <StatCounter value={60} suffix="%+" label="CO₂ Reduction" />
-            <StatCounter value={6} label="Team Members" />
+            <StatCounter value={7} label="Team Members" />
             <div className="text-center">
               <div className="text-data text-4xl md:text-5xl text-white mb-2 font-semibold font-display">2027</div>
               <p className="text-label text-steel">Competition Year</p>
@@ -220,30 +225,27 @@ export default function Home() {
       <SectionDivider topTheme="light" bottomTheme="void" flip />
 
       {/* ═══════════════════════════════════════════
-          04 — THE TEAM & PARTNERSHIP CTA
+          04 — PARTNERSHIP CTA
       ═══════════════════════════════════════════ */}
       <RevealSection className="section-dark section-padding">
         <div className="container-full">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">03 — Join Us</p>
+              <p className="reveal text-label text-signal mb-4">03 — Partner</p>
               <h2 className="reveal reveal-delay-1 text-section text-white">
-                Building the future of marine engineering.
+                Put your brand on a technical build.
               </h2>
             </div>
             <div className="md:col-span-7">
               <p className="reveal reveal-delay-2 text-lg text-steel leading-relaxed mb-8">
-                Whether you are a student looking for the ultimate hands-on engineering experience, or a sponsor looking to partner with the next generation of technical talent, there is a place for you at aQuaFoil.
+                We are confirming partners for the 2026-2027 design, fabrication, and competition cycle. Sponsors get documented engineering progress, student talent access, and visibility on a vessel built to race.
               </p>
               <div className="reveal reveal-delay-3 flex flex-wrap gap-4">
-                <Link href="/team" className="btn-primary">
-                  Meet the team
-                </Link>
-                <Link href="/partnership" className="px-6 py-3 border border-white/20 hover:border-signal hover:text-signal text-white text-sm font-medium transition-colors">
+                <Link href="/partnership" className="btn-primary">
                   Explore partnership
                 </Link>
-                <Link href="/join" className="px-6 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white text-sm font-medium transition-colors">
-                  Apply to join
+                <Link href="/join" className="px-6 py-3 border border-white/20 hover:border-signal hover:text-signal text-white text-sm font-medium transition-colors">
+                  Student opportunities
                 </Link>
               </div>
             </div>

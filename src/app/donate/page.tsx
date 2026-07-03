@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import RevealSection from '@/components/RevealSection';
 import SectionDivider from '@/components/SectionDivider';
 import ContactBlock from '@/components/ContactBlock';
@@ -13,25 +12,8 @@ import ContactBlock from '@/components/ContactBlock';
 const GOAL = 50000;
 const RAISED = 10000; // Updated as donations come in
 
-const SUGGESTED_AMOUNTS = [25, 100, 500, 1000];
-
-
-
 export default function DonatePage() {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
-  const [customAmount, setCustomAmount] = useState<string>('');
-  const [submitted, setSubmitted] = useState(false);
-
   const progressPct = Math.min(100, (RAISED / GOAL) * 100);
-  const finalAmount =
-    selectedAmount ?? (customAmount ? Number(customAmount) : 0);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: integrate Stripe / Donorbox / Zeffy / EngSoc gateway.
-    // For now, mark as submitted so we can wire copy.
-    setSubmitted(true);
-  };
 
   return (
     <>
@@ -91,168 +73,31 @@ export default function DonatePage() {
 
       <SectionDivider topTheme="carbon" bottomTheme="light" />
 
-      {/* ─── Donation Form ─── */}
+      {/* ─── Donation Contact ─── */}
       <RevealSection className="section-light section-padding">
         <div className="container-editorial">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <p className="reveal text-label text-signal-deep mb-4">Make a Gift</p>
               <h2 className="reveal reveal-delay-1 text-section text-void">
-                Choose your contribution
+                Contribute to the build
               </h2>
               <p className="reveal reveal-delay-2 text-base text-void/70 mt-4">
-                One-time donation. All amounts welcome — every contribution moves the boat closer to the start line.
+                We are finalizing a secure donation flow through Queen&apos;s and EngSoc channels. Until that is live, email us and we will send the current giving instructions.
               </p>
             </div>
 
-            {submitted ? (
-              <div className="reveal text-center py-16">
-                <div className="w-12 h-12 bg-signal/10 flex items-center justify-center mx-auto mb-6">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 13l4 4L19 7"
-                      stroke="#007A75"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-display text-2xl font-medium text-void mb-3">
-                  Thank you.
-                </h3>
-                <p className="text-void/70 mb-6">
-                  We&apos;ll redirect you to our secure payment partner to complete your ${finalAmount.toLocaleString()} contribution.
-                </p>
-                <p className="text-sm text-void/50 mb-8">
-                  If you&apos;re not redirected automatically, please email us at{' '}
-                  <a
-                    href="mailto:aQuatonomous.FOIL@engsoc.queensu.ca"
-                    className="text-signal-deep hover:text-signal underline"
-                  >
-                    aQuatonomous.FOIL@engsoc.queensu.ca
-                  </a>
-                  .
-                </p>
-                <button
-                  onClick={() => {
-                    setSubmitted(false);
-                    setSelectedAmount(100);
-                    setCustomAmount('');
-                  }}
-                  className="text-sm text-signal-deep hover:text-void underline"
-                >
-                  Make another donation
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="reveal reveal-delay-2 space-y-8">
-                {/* Suggested amounts */}
-                <div>
-                  <label className="text-label text-void/60 mb-4 block">
-                    Suggested Amount (CAD)
-                  </label>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {SUGGESTED_AMOUNTS.map((amount) => (
-                      <button
-                        key={amount}
-                        type="button"
-                        onClick={() => {
-                          setSelectedAmount(amount);
-                          setCustomAmount('');
-                        }}
-                        className={`py-5 border text-center transition-all ${
-                          selectedAmount === amount
-                            ? 'border-signal bg-signal/5'
-                            : 'border-light-border bg-white hover:border-steel'
-                        }`}
-                      >
-                        <span
-                          className={`text-data text-xl ${
-                            selectedAmount === amount ? 'text-signal-deep' : 'text-void'
-                          }`}
-                        >
-                          ${amount}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Custom amount */}
-                <div>
-                  <label className="text-label text-void/60 mb-2 block">
-                    Or enter a custom amount
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-void/60 font-mono">
-                      $
-                    </span>
-                    <input
-                      type="number"
-                      min="1"
-                      step="1"
-                      placeholder="0"
-                      value={customAmount}
-                      onChange={(e) => {
-                        setCustomAmount(e.target.value);
-                        setSelectedAmount(null);
-                      }}
-                      className="w-full bg-white border border-light-border text-void pl-9 pr-4 py-3 text-base placeholder:text-void/30 focus:border-signal"
-                    />
-                  </div>
-                </div>
-
-                {/* Summary + submit */}
-                <div className="border-t border-light-border pt-8">
-                  <div className="flex items-baseline justify-between mb-6">
-                    <p className="text-label text-void/60">Your contribution</p>
-                    <p className="text-data text-3xl text-void">
-                      ${finalAmount.toLocaleString()} CAD
-                    </p>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={finalAmount <= 0}
-                    className="btn-primary w-full justify-center disabled:opacity-40 disabled:cursor-not-allowed"
-                  >
-                    Continue to secure payment
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                  <p className="text-xs text-void/50 text-center mt-4">
-                    Processed securely. Donations through Queen&apos;s University may be eligible for a federal tax credit.
-                  </p>
-                </div>
-              </form>
-            )}
+            <ContactBlock
+              headline="Donation instructions"
+              body="Tell us the contribution amount or donation question, and we will reply with the best current route."
+              emailSubject="Donation Inquiry — aQuaFoil"
+              theme="light"
+            />
           </div>
         </div>
       </RevealSection>
 
       <SectionDivider topTheme="light" bottomTheme="void" flip />
-
-      {/* ─── Contact ─── */}
-      <RevealSection id="contact" className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="reveal mb-8">
-            <div className="signal-line mx-auto" />
-          </div>
-          <ContactBlock
-            headline="Questions before giving?"
-            body="Reach out — we'd rather have a conversation than miss a fit."
-            emailSubject="Donation Inquiry — aQuaFoil"
-            theme="dark"
-          />
-        </div>
-      </RevealSection>
     </>
   );
 }

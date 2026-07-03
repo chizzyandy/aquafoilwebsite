@@ -18,8 +18,9 @@ export const teamMembers: TeamMember[] = [
   { name: "Thomas Hung", role: "Co-Founder", discipline: "Engineering Physics", linkedin: "https://www.linkedin.com/in/thomas-hung-8a3082299" },
   { name: "Aidan Woods", role: "CFD Lead", discipline: "Engineering Physics", linkedin: "https://www.linkedin.com/in/aidan-woods-34860a347/" },
   { name: "Joel Voyer", role: "Mechanical Lead", discipline: "Engineering Physics" },
-  { name: "Tochukwu Odiwa", role: "CFD Hull Lead", discipline: "Mechanical Engineering", linkedin: "https://www.linkedin.com/in/tochukwu-odiwa-ba8480282/" },
-  { name: "Ethan Astri", role: "Computation Lead", discipline: "Computer Engineering", linkedin: "https://www.linkedin.com/in/ethan-astri-3887372a0/" },
+  { name: "Tochukwu Odiwa", role: "CFD Hull Lead", discipline: "Engineering Physics", linkedin: "https://www.linkedin.com/in/tochukwu-odiwa-ba8480282/" },
+  { name: "Ethan Astri", role: "Computation Lead", discipline: "Applied Math", linkedin: "https://www.linkedin.com/in/ethan-astri-3887372a0/" },
+  { name: "Nicolas Kaye", role: "Networks Lead", discipline: "Computer Engineering", linkedin: "https://www.linkedin.com/in/nicolas-kaye-4005552b4/" },
 ];
 
 export const advisors: Advisor[] = [

@@ -29,7 +29,7 @@ export default function TeamPage() {
             The people behind the flight
           </h1>
           <p className="text-xl text-steel max-w-2xl leading-relaxed">
-            We are a team of student leads from Queen&apos;s University spanning engineering physics, mechanical engineering, and computer engineering. Together, we are building a sustainable foiling Moth for the 2027 SuMoth Challenge.
+            We are a team of student leads from Queen&apos;s University spanning engineering physics, mechanical engineering, applied math, and computer engineering. Together, we are building a sustainable foiling Moth for the 2027 SuMoth Challenge.
           </p>
         </div>
       </section>

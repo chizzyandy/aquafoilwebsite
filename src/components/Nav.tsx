@@ -8,9 +8,13 @@ const navLinks = [
   { label: 'Why It Matters', href: '/article' },
   { label: 'The Build', href: '/build' },
   { label: 'Team', href: '/team' },
-  { label: 'Partnership', href: '/partnership' },
-  { label: 'Donate', href: '/donate' },
   { label: 'Join', href: '/join' },
+  { label: 'Partnership', href: '/partnership' },
+];
+
+const mobileNavLinks = [
+  ...navLinks,
+  { label: 'Donate', href: '/donate' },
 ];
 
 export default function Nav() {
@@ -81,7 +85,7 @@ export default function Nav() {
         }`}
       >
         <div className="flex flex-col items-start justify-center h-full px-8 gap-6">
-          {navLinks.map((link, i) => (
+          {mobileNavLinks.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}

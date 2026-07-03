@@ -144,30 +144,46 @@ export default function ArticlePage() {
           {/* Article Images — Materials */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
             <figure className="reveal reveal-delay-4">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
-                <Image
-                  src="/images/BCOMP_ECO360.jpg"
-                  alt="The ecoRacer30, the first fully recyclable nine-metre racing sailboat, built by Northern Light Composites using Bcomp flax fiber composites"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+              <a
+                href="https://www.bcomp.com/news/northern-light-composites-ecoracer30/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read more about Northern Light Composites ecoRacer30 on Bcomp"
+                className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal"
+              >
+                <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+                  <Image
+                    src="/images/BCOMP_ECO360.jpg"
+                    alt="The ecoRacer30, the first fully recyclable nine-metre racing sailboat, built by Northern Light Composites using Bcomp flax fiber composites"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </a>
               <figcaption className="mt-3 text-xs text-void/50 italic leading-relaxed">
                 The ecoRacer30 — the first fully recyclable nine-metre racing sailboat, built by Northern Light Composites using Bcomp&apos;s ampliTex flax composites.
               </figcaption>
             </figure>
 
             <figure className="reveal reveal-delay-5">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
-                <Image
-                  src="/images/WOY26.png"
-                  alt="Aerial view of the Woy 26, a high-performance sustainable daysailer built with vacuum-infused timber and bio-resin construction"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+              <a
+                href="https://www.yachtingworld.com/yachts-and-gear/woy26-first-look-open-daysailer-with-sustainable-design-156585"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read more about the Woy 26 on Yachting World"
+                className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal"
+              >
+                <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16 / 10' }}>
+                  <Image
+                    src="/images/WOY26.png"
+                    alt="Aerial view of the Woy 26, a high-performance sustainable daysailer built with vacuum-infused timber and bio-resin construction"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </a>
               <figcaption className="mt-3 text-xs text-void/50 italic leading-relaxed">
                 The Woy 26 — a high-performance daysailer built with vacuum-infused timber and bio-resin. Nominated for European Yacht of the Year 2026.
               </figcaption>
@@ -204,6 +220,25 @@ export default function ArticlePage() {
               <h2 className="reveal reveal-delay-1 text-section text-white">
                 The SuMoth Challenge
               </h2>
+              <a
+                href="https://sumoth.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal reveal-delay-2 mt-8 inline-flex w-full max-w-xs items-center justify-center border border-white/10 bg-white p-5 transition-colors hover:border-signal"
+                aria-label="Visit the official SuMoth Challenge website"
+              >
+                <Image
+                  src="/images/competition/sumoth-logo.svg"
+                  alt="SuMoth Challenge logo"
+                  width={280}
+                  height={140}
+                  className="h-auto w-full max-w-[220px]"
+                  unoptimized
+                />
+              </a>
+              <p className="reveal reveal-delay-3 mt-3 text-xs text-steel/60">
+                Official competition platform
+              </p>
             </div>
             <div className="md:col-span-7">
               <div className="reveal reveal-delay-2 space-y-6">

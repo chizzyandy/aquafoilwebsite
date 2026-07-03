@@ -32,23 +32,15 @@ export const partners: Partner[] = [
 
 export const partnershipValues = [
   {
-    title: "Proof, Not Claims",
-    description: "Every decision validated by CFD, FEA, and lifecycle assessment. Your brand ties to documented outcomes, not marketing copy.",
+    title: "Technical Proof",
+    description: "CFD, FEA, and lifecycle assessment turn the partnership into documented engineering progress, not generic sustainability copy.",
   },
   {
-    title: "Talent Before the Market",
-    description: "Direct access to Smith Engineering students in CFD, composites, manufacturing, and structural analysis — before they graduate. Lab visits, design reviews, resume bank, and internship pipeline included.",
+    title: "Talent Pipeline",
+    description: "Meet Smith Engineering students through reviews, lab visits, and recruiting touchpoints tied to a real build cycle.",
   },
   {
-    title: "First-Mover Advantage",
-    description: "We are confirming 2026–2027 partners now. Early partners receive primary placement and the deepest association with the programme across an 18-month build cycle to Lake Garda.",
-  },
-  {
-    title: "ESG & Sustainability Alignment",
-    description: "Materials assessed through MarineShift360 lifecycle analysis. Measurable environmental impact, not aspirational language.",
-  },
-  {
-    title: "International Competition Visibility",
-    description: "Your brand travels to Lake Garda, Italy alongside teams from 7+ nations during Foiling Week — covered by sailing and engineering media worldwide.",
+    title: "Competition Visibility",
+    description: "Your brand appears across the vessel, team media, and SuMoth Challenge representation at Lake Garda.",
   },
 ];

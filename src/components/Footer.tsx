@@ -1,20 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-    }
-  };
-
   return (
     <footer className="section-dark border-t border-slate/30">
       <div className="container-full pt-24 pb-16 md:pt-32 md:pb-24">
@@ -41,8 +29,17 @@ export default function Footer() {
               <Link href="/team" className="text-sm text-white/70 hover:text-white transition-colors">Team</Link>
               <Link href="/build" className="text-sm text-white/70 hover:text-white transition-colors">The Build</Link>
               <Link href="/partnership" className="text-sm text-white/70 hover:text-white transition-colors">Partnership</Link>
+              <Link href="/article" className="text-sm text-white/70 hover:text-white transition-colors">Why It Matters</Link>
+            </div>
+          </div>
 
-              <Link href="/join" className="text-sm text-white/70 hover:text-white transition-colors">Join</Link>
+          {/* Support */}
+          <div className="md:col-span-3">
+            <p className="text-label text-steel mb-4">Support</p>
+            <div className="flex flex-col gap-3">
+              <Link href="/join" className="text-sm text-white/70 hover:text-white transition-colors">Join the team</Link>
+              <Link href="/donate" className="text-sm text-white/70 hover:text-white transition-colors">Donate</Link>
+              <Link href="/partnership#contact" className="text-sm text-white/70 hover:text-white transition-colors">Partner with us</Link>
             </div>
           </div>
 
@@ -60,28 +57,6 @@ export default function Footer() {
                 LinkedIn
               </a>
             </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="md:col-span-3">
-            <p className="text-label text-steel mb-4">Follow the build</p>
-            {subscribed ? (
-              <p className="text-sm text-signal">Subscribed. We&apos;ll be in touch.</p>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="bg-carbon border border-slate text-white text-sm px-4 py-3 placeholder:text-mid focus:border-signal transition-colors"
-                />
-                <button type="submit" className="btn-primary text-sm !py-2.5 w-full justify-center">
-                  Subscribe
-                </button>
-              </form>
-            )}
           </div>
         </div>
 
