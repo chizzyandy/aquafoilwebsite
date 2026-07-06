@@ -45,7 +45,12 @@ export default function Nav() {
       >
         <div className="container-full flex items-center justify-between h-16 md:h-20">
           {/* Wordmark */}
-          <Link href="/" className="font-display text-xl md:text-2xl font-medium tracking-tight text-white hover:text-signal transition-colors">
+          <Link
+            href="/"
+            className={`font-display text-xl md:text-2xl font-medium tracking-tight text-white hover:text-signal transition-all duration-300 ${
+              mobileOpen ? 'opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto' : 'opacity-100'
+            }`}
+          >
             aQuaFoil
           </Link>
 
@@ -70,6 +75,8 @@ export default function Nav() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden relative w-8 h-8 flex items-center justify-center"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             <span className={`block absolute w-5 h-px bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
             <span className={`block absolute w-5 h-px bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : 'opacity-100'}`} />
@@ -80,6 +87,7 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
         className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 md:hidden ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
