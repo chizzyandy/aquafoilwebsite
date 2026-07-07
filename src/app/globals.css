@@ -233,6 +233,13 @@ body {
   z-index: 1;
 }
 
+.build-hero-background {
+  background:
+    linear-gradient(90deg, rgba(12, 13, 16, 0.9) 0%, rgba(12, 13, 16, 0.68) 46%, rgba(12, 13, 16, 0.28) 100%),
+    linear-gradient(180deg, rgba(12, 13, 16, 0.16) 0%, rgba(12, 13, 16, 0.82) 100%),
+    url('/images/SumothTeams.jpg') center 42% / cover no-repeat;
+}
+
 .section-padding {
   padding: clamp(80px, 12vw, 160px) 0;
 }

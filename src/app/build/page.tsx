@@ -26,7 +26,7 @@ export default function BuildPage() {
   return (
     <>
       {/* Hero */}
-      <section className="section-dark pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="section-dark build-hero-background pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="container-editorial">
           <p className="text-label text-signal mb-4">The Build</p>
           <h1 className="text-hero text-white max-w-3xl">
