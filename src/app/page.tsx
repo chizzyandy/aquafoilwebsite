@@ -5,7 +5,6 @@ import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import StatCounter from '@/components/StatCounter';
 import SectionDivider from '@/components/SectionDivider';
-import { teamMembers } from '@/data/team';
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -159,9 +158,8 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <div className="reveal reveal-delay-2 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 py-12 border-t border-b border-white/10 text-center">
-            <StatCounter value={60} suffix="%+" label="CO₂ Reduction" />
-            <StatCounter value={teamMembers.length} label="Team Members" />
+          <div className="reveal reveal-delay-2 mt-20 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 py-12 border-t border-b border-white/10 text-center">
+            <StatCounter value={30} suffix="+" label="Team Members" />
             <div className="text-center">
               <div className="text-data text-4xl md:text-5xl text-white mb-2 font-semibold font-display">2027</div>
               <p className="text-label text-steel">Competition Year</p>

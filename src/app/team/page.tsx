@@ -29,7 +29,7 @@ export default function TeamPage() {
             The people behind the flight
           </h1>
           <p className="text-xl text-steel max-w-2xl leading-relaxed">
-            We are a team of student leads from Queen&apos;s University spanning engineering physics, mechanical engineering, applied math, and computer engineering. Together, we are building a sustainable foiling Moth for the 2027 SuMoth Challenge.
+            We are a team of 30+ students from Queen&apos;s University spanning engineering physics, mechanical engineering, applied math, and computer engineering. Together, we are building a sustainable foiling Moth for the 2027 SuMoth Challenge.
           </p>
         </div>
       </section>
@@ -73,11 +73,11 @@ export default function TeamPage() {
                 {teamMembers.map((member) => (
                   <div key={member.name} className="card-dark p-6 flex flex-col justify-between h-full">
                     <div>
-                      <div className="relative w-14 h-14 bg-slate/30 mb-6 flex items-center justify-center rounded-sm overflow-hidden">
+                      <div className="relative w-28 h-28 bg-slate/30 mb-6 flex items-center justify-center rounded-sm overflow-hidden">
                         {member.image ? (
-                          <Image src={member.image} alt={member.name} fill sizes="56px" className="object-cover" />
+                          <Image src={member.image} alt={member.name} fill sizes="112px" className="object-cover" />
                         ) : (
-                          <span className="text-label text-mid text-xs">{initials(member.name)}</span>
+                          <span className="text-label text-mid text-sm">{initials(member.name)}</span>
                         )}
                       </div>
                       <h3 className="font-display text-base font-medium text-white mb-1">{member.name}</h3>
@@ -107,11 +107,11 @@ export default function TeamPage() {
                 {advisors.map((advisor) => (
                   <div key={advisor.name} className="card-dark p-8 flex flex-col justify-between h-full">
                     <div>
-                      <div className="relative w-14 h-14 bg-slate/30 mb-6 flex items-center justify-center rounded-sm overflow-hidden">
+                      <div className="relative w-28 h-28 bg-slate/30 mb-6 flex items-center justify-center rounded-sm overflow-hidden">
                         {advisor.image ? (
-                          <Image src={advisor.image} alt={advisor.name} fill sizes="56px" className="object-cover" />
+                          <Image src={advisor.image} alt={advisor.name} fill sizes="112px" className="object-cover" />
                         ) : (
-                          <span className="text-label text-mid text-xs">{initials(advisor.name)}</span>
+                          <span className="text-label text-mid text-sm">{initials(advisor.name)}</span>
                         )}
                       </div>
                       <h3 className="font-display text-lg font-medium text-white mb-1">{advisor.name}</h3>
