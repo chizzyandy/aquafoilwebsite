@@ -23,6 +23,7 @@ export const teamMembers: TeamMember[] = [
   { name: "Tochukwu Odiwa", role: "CFD Hull Lead", discipline: "Engineering Physics", image: "/images/Team/TochukwuOdiwa.png", linkedin: "https://www.linkedin.com/in/tochukwu-odiwa-ba8480282/" },
   { name: "Ethan Astri", role: "Computation Lead", discipline: "Applied Math", image: "/images/Team/EthanAstri.jpeg", linkedin: "https://www.linkedin.com/in/ethan-astri-3887372a0/" },
   { name: "Nicolas Kaye", role: "Networks Lead", discipline: "Computer Engineering", image: "/images/Team/NicholasKaye.jpeg", linkedin: "https://www.linkedin.com/in/nicolas-kaye-4005552b4/" },
+  { name: "Jubal Clapp", role: "Radar Lead", discipline: "Electrical Engineering", linkedin: "https://www.linkedin.com/in/jubal-clapp/" },
 ];
 
 export const advisors: Advisor[] = [
