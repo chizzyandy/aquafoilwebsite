@@ -107,44 +107,6 @@ export default function PartnershipPage() {
         </div>
       </RevealSection>
 
-
-      {/* What Partners Get */}
-      <RevealSection className="section-dark section-padding">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-            <div className="md:col-span-5">
-              <p className="reveal text-label text-signal mb-4">Partner Benefits</p>
-              <h2 className="reveal reveal-delay-1 text-section text-white">
-                What you receive
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <div className="reveal reveal-delay-2 space-y-6">
-                {[
-                  {
-                    title: 'Brand Placement',
-                    desc: 'Visibility on the vessel, apparel, website, and selected competition media, scaled to the partnership tier.',
-                  },
-                  {
-                    title: 'Build Content',
-                    desc: 'Photography, video, and progress updates from design reviews, fabrication, testing, and race preparation.',
-                  },
-                  {
-                    title: 'Engineering Access',
-                    desc: 'Design reviews, team introductions, and collaboration opportunities for materials, manufacturing, and technical partners.',
-                  },
-                ].map((benefit, i) => (
-                  <div key={benefit.title} className={`py-6 ${i > 0 ? 'border-t border-slate/30' : ''}`}>
-                    <h3 className="font-display text-lg font-medium text-white mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-steel/80 leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </RevealSection>
-
       <SectionDivider topTheme="void" bottomTheme="carbon" />
 
       {/* Current Partners */}
@@ -155,13 +117,17 @@ export default function PartnershipPage() {
           </div>
 
           {/* Institutional */}
-          <div className="reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
+          <div className="reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
             {partners.filter(p => p.tier !== 'software').map((partner) => (
               <div key={partner.name} className="card-dark p-8 text-center">
-                <div className="w-full h-24 md:h-28 flex items-center justify-center mb-4">
+                <div
+                  className={`w-full h-24 md:h-28 flex items-center justify-center mb-4 ${
+                    partner.logoOnLight ? 'bg-white rounded-md px-5 py-4' : ''
+                  }`}
+                >
                   {partner.logo ? (
-                    <a href={partner.url} target="_blank" rel="noopener noreferrer">
-                      <Image src={partner.logo} alt={`${partner.name} logo`} width={320} height={112} className="w-320 h-112 object-contain" />
+                    <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                      <Image src={partner.logo} alt={`${partner.name} logo`} width={320} height={112} className="w-full h-full object-contain" />
                     </a>
                   ) : (
                     <span className="font-display text-lg font-medium text-white">{partner.name}</span>

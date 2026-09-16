@@ -2,6 +2,8 @@ export interface Partner {
   name: string;
   tier: 'founding' | 'technical' | 'supporting' | 'software';
   logo?: string;
+  /** Set when the logo artwork is dark ink drawn for light backgrounds. */
+  logoOnLight?: boolean;
   url?: string;
   description?: string;
 }
@@ -13,6 +15,22 @@ export const partners: Partner[] = [
     url: "https://smithengineering.queensu.ca/index.html",
     description: "Institutional home and faculty support. ",
     logo: "/images/partners/smith-logo.svg",
+  },
+  {
+    name: "Wind Athletes Canada",
+    tier: "technical",
+    url: "https://www.windathletes.ca/",
+    logo: "/images/partners/windathletes-logo.png",
+    logoOnLight: true,
+    description: "Loaned BladeRider Moth serving as our test platform for design validation and a source of spare parts.",
+  },
+  {
+    name: "Chisholm Lumber",
+    tier: "supporting",
+    url: "https://www.chisholmlumber.com/",
+    logo: "/images/partners/chisholm-logo.png",
+    logoOnLight: true,
+    description: "Raw timber supplied for the boat build, milled by a family forest products operation running since 1857.",
   },
   {
     name: "SolidWorks",

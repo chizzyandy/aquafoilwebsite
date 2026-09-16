@@ -5,15 +5,78 @@ import Image from 'next/image';
 import Link from 'next/link';
 import RevealSection from '@/components/RevealSection';
 import SectionDivider from '@/components/SectionDivider';
-import { teamMembers, advisors } from '@/data/team';
+import { captains, teamTiers, advisors, type TeamMember, type SubTeam } from '@/data/team';
+
+const HONORIFICS = ['dr.', 'dr', 'prof.', 'prof', 'mr.', 'ms.', 'mrs.'];
 
 function initials(name: string) {
   return name
     .split(' ')
+    .filter((part) => !HONORIFICS.includes(part.toLowerCase()))
     .map((part) => part[0])
     .join('')
     .slice(0, 2)
     .toUpperCase();
+}
+
+function MemberCard({ member }: { member: TeamMember }) {
+  return (
+    <div className="card-dark p-3 sm:p-4 w-[132px] sm:w-[150px] flex flex-col justify-between">
+      <div>
+        <div className="relative w-20 h-20 mx-auto bg-slate/30 mb-4 flex items-center justify-center rounded-sm overflow-hidden">
+          {member.image ? (
+            <Image src={member.image} alt={member.name} fill sizes="80px" className="object-cover" />
+          ) : (
+            <span className="text-label text-mid text-xs">{initials(member.name)}</span>
+          )}
+        </div>
+        <h3 className="font-display text-sm font-medium text-white text-center leading-snug mb-1">
+          {member.name}
+        </h3>
+        {member.role && <p className="text-[11px] text-signal text-center mb-1">{member.role}</p>}
+        {member.discipline && (
+          <p className="text-[9px] text-steel font-mono tracking-wider text-center leading-tight">
+            {member.discipline}
+          </p>
+        )}
+      </div>
+      {member.linkedin && (
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 text-[9px] text-signal-deep hover:text-signal transition-colors font-mono uppercase tracking-wider text-center"
+        >
+          LinkedIn ↗
+        </a>
+      )}
+    </div>
+  );
+}
+
+/** One sub-team, boxed so the grouping reads as a unit. */
+function TeamGroup({ team }: { team: SubTeam }) {
+  return (
+    <div className="border border-slate/25 bg-void/40 rounded-sm px-4 sm:px-6 py-5 max-w-full min-w-0 sm:min-w-[230px]">
+      <div className="flex items-baseline justify-center gap-3 mb-1">
+        <h3 className="font-display text-lg font-medium text-white tracking-wide">{team.name}</h3>
+        <span className="text-[10px] text-mid font-mono">{team.members.length}</span>
+      </div>
+      <p className="text-[11px] text-steel/80 text-center max-w-[36ch] mx-auto mb-5 leading-relaxed">
+        {team.blurb}
+      </p>
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+        {team.members.map((member) => (
+          <MemberCard key={member.name} member={member} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Vertical rule linking one pyramid row to the next. */
+function Connector() {
+  return <div className="w-px h-10 bg-gradient-to-b from-slate/40 to-slate/10 mx-auto" aria-hidden />;
 }
 
 export default function TeamPage() {
@@ -66,37 +129,38 @@ export default function TeamPage() {
             </div>
           </div>
 
-          {/* Tab 1: Team Members Grid */}
+          {/* Tab 1: Pyramid — captains at the apex, sub-teams widening below */}
           {activeTab === 'team' && (
-            <div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {teamMembers.map((member) => (
-                  <div key={member.name} className="card-dark p-6 flex flex-col justify-between h-full">
-                    <div>
-                      <div className="relative w-28 h-28 bg-slate/30 mb-6 flex items-center justify-center rounded-sm overflow-hidden">
-                        {member.image ? (
-                          <Image src={member.image} alt={member.name} fill sizes="112px" className="object-cover" />
-                        ) : (
-                          <span className="text-label text-mid text-sm">{initials(member.name)}</span>
-                        )}
-                      </div>
-                      <h3 className="font-display text-base font-medium text-white mb-1">{member.name}</h3>
-                      <p className="text-xs text-signal mb-1">{member.role}</p>
-                      <p className="text-[10px] text-steel font-mono tracking-wider">{member.discipline}</p>
-                    </div>
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex mt-4 text-[10px] text-signal-deep hover:text-signal transition-colors font-mono uppercase tracking-wider"
-                      >
-                        LinkedIn ↗
-                      </a>
-                    )}
-                  </div>
-                ))}
+            <div className="flex flex-col items-center">
+
+              {/* Apex: Team Captains */}
+              <div className="border border-signal/30 bg-void/40 rounded-sm px-4 sm:px-6 py-5">
+                <div className="flex items-baseline justify-center gap-3 mb-1">
+                  <h3 className="font-display text-lg font-medium text-white tracking-wide">Team Captains</h3>
+                  <span className="text-[10px] text-mid font-mono">{captains.length}</span>
+                </div>
+                <p className="text-[11px] text-steel/80 text-center max-w-[36ch] mx-auto mb-5 leading-relaxed">
+                  Founders and overall technical direction for the 2027 SuMoth campaign.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+                  {captains.map((member) => (
+                    <MemberCard key={member.name} member={member} />
+                  ))}
+                </div>
               </div>
+
+              {/* Widening rows of sub-teams */}
+              {teamTiers.map((tier, i) => (
+                <div key={i} className="w-full flex flex-col items-center">
+                  <Connector />
+                  <div className="flex flex-wrap justify-center items-start gap-4 sm:gap-6">
+                    {tier.map((team) => (
+                      <TeamGroup key={team.name} team={team} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+
             </div>
           )}
 
@@ -114,10 +178,23 @@ export default function TeamPage() {
                           <span className="text-label text-mid text-sm">{initials(advisor.name)}</span>
                         )}
                       </div>
+                      {advisor.focus && (
+                        <p className="text-label text-signal-deep text-[10px] mb-2">{advisor.focus}</p>
+                      )}
                       <h3 className="font-display text-lg font-medium text-white mb-1">{advisor.name}</h3>
                       <p className="text-sm text-signal mb-2">{advisor.title}</p>
                       <p className="text-xs text-steel/80 leading-relaxed">{advisor.affiliation}</p>
                     </div>
+                    {advisor.link && (
+                      <a
+                        href={advisor.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 self-start text-[10px] text-signal-deep hover:text-signal transition-colors font-mono uppercase tracking-wider"
+                      >
+                        {advisor.linkLabel ?? 'Profile'} ↗
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
