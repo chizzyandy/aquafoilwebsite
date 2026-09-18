@@ -10,10 +10,6 @@ const navLinks = [
   { label: 'Team', href: '/team' },
   { label: 'Join', href: '/join' },
   { label: 'Partnership', href: '/partnership' },
-];
-
-const mobileNavLinks = [
-  ...navLinks,
   { label: 'Donate', href: '/donate' },
 ];
 
@@ -48,14 +44,14 @@ export default function Nav() {
           <Link
             href="/"
             className={`font-display text-xl md:text-2xl font-medium tracking-tight text-white hover:text-signal transition-all duration-300 ${
-              mobileOpen ? 'opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto' : 'opacity-100'
+              mobileOpen ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : 'opacity-100'
             }`}
           >
             aQuaFoil
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -73,7 +69,7 @@ export default function Nav() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-8 h-8 flex items-center justify-center"
+            className="lg:hidden relative w-8 h-8 flex items-center justify-center"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -88,12 +84,12 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 md:hidden ${
+        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 lg:hidden ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col items-start justify-center h-full px-8 gap-6">
-          {mobileNavLinks.map((link, i) => (
+          {navLinks.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}

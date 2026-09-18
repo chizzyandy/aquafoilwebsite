@@ -167,7 +167,7 @@ export default function TeamPage() {
           {/* Tab 2: Advisors Grid */}
           {activeTab === 'advisors' && (
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 {advisors.map((advisor) => (
                   <div key={advisor.name} className="card-dark p-8 flex flex-col justify-between h-full">
                     <div>

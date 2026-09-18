@@ -105,6 +105,14 @@ export const advisors: Advisor[] = [
     link: "https://www.linkedin.com/in/alex-benjamin-667965/",
     linkLabel: "LinkedIn",
   },
+  {
+    name: "Dr. Maria Teresa Chiri",
+    title: "Assistant Professor",
+    affiliation: "Mathematics & Statistics, Queen's University",
+    focus: "Faculty Support",
+    link: "https://mariateresachiri.weebly.com/",
+    linkLabel: "Website",
+  },
 ];
 
 /** Sub-teams grouped into pyramid rows, narrowest first. */

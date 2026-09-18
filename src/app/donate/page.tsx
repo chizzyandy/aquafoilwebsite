@@ -7,10 +7,13 @@ import ContactBlock from '@/components/ContactBlock';
 // ────────────────────────────────────────────────────────────
 // Goal & raised totals
 // Update GOAL / RAISED as fundraising progresses.
-// Cody's stretched target: $50,000 CAD (vs $35,175 program budget).
+// Campaign target: $42,000 CAD (vs $35,175 program budget).
 // ────────────────────────────────────────────────────────────
-const GOAL = 50000;
+const GOAL = 42000;
 const RAISED = 10000; // Updated as donations come in
+
+// Give to Queen's cart with the aQuaFoil (aQuatonomous) fund pre-selected
+const GIVE_URL = 'https://donate.queensu.ca/cart?a[]=AF-AQUATONOMOUS';
 
 export default function DonatePage() {
   const progressPct = Math.min(100, (RAISED / GOAL) * 100);
@@ -27,6 +30,16 @@ export default function DonatePage() {
           <p className="text-xl text-steel max-w-2xl leading-relaxed">
             Every dollar takes a Queen&apos;s engineering team one step closer to racing a sustainable foiling Moth at the SuMoth Challenge 2027. Small donations add up.
           </p>
+          <div className="mt-10">
+            <a
+              href={GIVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Donate through Give to Queen&apos;s <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -80,19 +93,34 @@ export default function DonatePage() {
             <div className="text-center mb-12">
               <p className="reveal text-label text-signal-deep mb-4">Make a Gift</p>
               <h2 className="reveal reveal-delay-1 text-section text-void">
-                Contribute to the build
+                Give through Queen&apos;s
               </h2>
               <p className="reveal reveal-delay-2 text-base text-void/70 mt-4">
-                We are finalizing a secure donation flow through Queen&apos;s and EngSoc channels. Until that is live, email us and we will send the current giving instructions.
+                Donations are made through Give to Queen&apos;s, the university&apos;s official giving site. Our fund is already selected, so all you need to do is choose an amount.
               </p>
+              <div className="reveal reveal-delay-3 mt-8">
+                <a
+                  href={GIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary !text-base"
+                >
+                  Donate to aQuaFoil <span aria-hidden="true">↗</span>
+                </a>
+                <p className="text-sm text-mid mt-4 font-mono">
+                  Opens donate.queensu.ca
+                </p>
+              </div>
             </div>
 
-            <ContactBlock
-              headline="Donation instructions"
-              body="Tell us the contribution amount or donation question, and we will reply with the best current route."
-              emailSubject="Donation Inquiry — aQuaFoil"
-              theme="light"
-            />
+            <div className="border-t border-light-border pt-12">
+              <ContactBlock
+                headline="Questions about giving?"
+                body="For larger gifts, matching programs, or anything else, email us and we will get back to you."
+                emailSubject="Donation Inquiry — aQuaFoil"
+                theme="light"
+              />
+            </div>
           </div>
         </div>
       </RevealSection>
