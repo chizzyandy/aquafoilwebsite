@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "aQuaFoil",
+  icons: { icon: "/logo.jpeg" },
   description:
     "aQuaFoil is Queen's University's sustainable high-performance engineering design team, building a foiling Moth for the SuMoth Challenge 2027.",
   keywords: [
