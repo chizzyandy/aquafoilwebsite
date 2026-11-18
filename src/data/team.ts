@@ -43,7 +43,7 @@ export const subTeams: SubTeam[] = [
       { name: "Tory Mee", role: "CFD Foil Lead", discipline: "Engineering Physics", image: "/images/Team/ToryMee.jpeg", linkedin: "https://www.linkedin.com/in/tory-mee/" },
       { name: "Ethan Astri", role: "Computation Lead", discipline: "Applied Math", image: "/images/Team/EthanAstri.jpeg", linkedin: "https://www.linkedin.com/in/ethan-astri-3887372a0/" },
       { name: "Nicolas Kaye", role: "Networks Lead", discipline: "Computer Engineering", image: "/images/Team/NicholasKaye.jpeg", linkedin: "https://www.linkedin.com/in/nicolas-kaye-4005552b4/" },
-      { name: "Torsten Young", role: "Software Lead", image: "/images/Team/TorstenYoung.jpg", linkedin: "https://www.linkedin.com/in/torsten-young/" },
+      { name: "Torsten Young", role: "Software Lead", discipline: "General Engineering", image: "/images/Team/TorstenYoung.jpg", linkedin: "https://www.linkedin.com/in/torsten-young/" },
     ],
   },
   {
