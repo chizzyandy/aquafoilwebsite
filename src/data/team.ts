@@ -16,6 +16,8 @@ export interface SubTeam {
 
 export interface Advisor {
   name: string;
+  /** Keep advisor data available while omitting the profile from the public tab. */
+  hidden?: boolean;
   title: string;
   affiliation: string;
   /** The domain this advisor covers for the team. */
@@ -41,6 +43,7 @@ export const subTeams: SubTeam[] = [
       { name: "Tory Mee", role: "CFD Foil Lead", discipline: "Engineering Physics", image: "/images/Team/ToryMee.jpeg", linkedin: "https://www.linkedin.com/in/tory-mee/" },
       { name: "Ethan Astri", role: "Computation Lead", discipline: "Applied Math", image: "/images/Team/EthanAstri.jpeg", linkedin: "https://www.linkedin.com/in/ethan-astri-3887372a0/" },
       { name: "Nicolas Kaye", role: "Networks Lead", discipline: "Computer Engineering", image: "/images/Team/NicholasKaye.jpeg", linkedin: "https://www.linkedin.com/in/nicolas-kaye-4005552b4/" },
+      { name: "Torsten Young", role: "Software Lead", image: "/images/Team/TorstenYoung.jpg", linkedin: "https://www.linkedin.com/in/torsten-young/" },
     ],
   },
   {
@@ -83,6 +86,7 @@ export const subTeams: SubTeam[] = [
 export const advisors: Advisor[] = [
   {
     name: "Steve Killing",
+    hidden: true,
     title: "Yacht Designer",
     affiliation: "Steve Killing Yacht Design",
     focus: "Naval Architecture",
@@ -91,6 +95,7 @@ export const advisors: Advisor[] = [
   },
   {
     name: "Dr. Barbara da Silva",
+    hidden: true,
     title: "Assistant Professor",
     affiliation: "Mechanical & Materials Engineering, Queen's University",
     focus: "Fluid Dynamics",
@@ -110,6 +115,7 @@ export const advisors: Advisor[] = [
     title: "Assistant Professor",
     affiliation: "Mathematics & Statistics, Queen's University",
     focus: "Faculty Support",
+    image: "/images/Team/MariaTeresaChiri.jpeg",
     link: "https://mariateresachiri.weebly.com/",
     linkLabel: "Website",
   },
